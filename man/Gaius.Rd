@@ -8,18 +8,6 @@ Gaius
 
 Gaius
 }
-\section{Selectors}{
-
-Using the \code{change} method on an \code{id} will only apply the style to
-that one specific element bearing the \code{id}. Using it on a \code{class},
-or \code{tag} changes all elements bearing said class or of said tag.
-\itemize{
-\item Change \code{textInput(id = "hello")} with \code{id = hello}
-\item Change \code{h1(class = "shiny")} with \code{class = shiny}
-\item Change \code{p("Hello")} with \code{tag = p}
-}
-}
-
 \examples{
 
 ## ------------------------------------------------
@@ -32,13 +20,13 @@ Gaius$new()$define(baseColor = "blue")
 ## Method `Gaius$change`
 ## ------------------------------------------------
 
-Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
+Gaius$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
 
 ## ------------------------------------------------
 ## Method `Gaius$print_css`
 ## ------------------------------------------------
 
-Gaius$new()$change(id = myButton, color = "blue")$print_css()
+Gaius$new()$change(sel_id("myButton"), color = "blue")$print_css()
 
 ## ------------------------------------------------
 ## Method `Gaius$include`
@@ -49,13 +37,13 @@ css <- Gaius$
   new()$
   define(grey = '#c4c4c4')$
   change(
-    id = myButton, 
+    sel_id("myButton"), 
     backgroundColor = 'red', 
     fontSize = 20,
     color = grey
   )$
   change(
-    class = aClass,
+    sel_class("aClass"),
     color = grey
   )
 
@@ -124,17 +112,16 @@ Self: the \code{Gaius} object.
 \if{latex}{\out{\hypertarget{method-change}{}}}
 \subsection{Method \code{change()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Gaius$change(..., id, class, tag)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$change(selector, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
 \if{html}{\out{<div class="arguments">}}
 \describe{
+\item{\code{selector}}{An object of class \code{selector} as returned by the \verb{sel_*} family of functions.}
+
 \item{\code{...}}{Declarations: properties and their values. This accepts
 camelcase, e.g.: \code{font-style} or \code{fontStyle}.}
-
-\item{\code{id, class, tag}}{Bare name of the id, class, or tag to change,
-used to define the selector. Specify only of \code{id}, \code{class}, or \code{tag}.}
 }
 \if{html}{\out{</div>}}
 }
@@ -147,7 +134,7 @@ Self: the \code{Gaius} object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
+\preformatted{Gaius$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
 }
 \if{html}{\out{</div>}}
 
@@ -172,13 +159,13 @@ Gaius$
 new()$
 define(primary_color = 'red')$
 change(
-id = myButton,
-color = "blue",
+sel_id("myButton"),
+color = primary_color,
 fontSize = 50
 )$
 change(
-class = "container",
-backgroundColor = "$primary_color"
+sel_class("container"),
+backgroundColor = primary_color
 )$
 build()
 }
@@ -198,7 +185,7 @@ Prints Generated CSS
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{Gaius$new()$change(id = myButton, color = "blue")$print_css()
+\preformatted{Gaius$new()$change(sel_id("myButton"), color = "blue")$print_css()
 }
 \if{html}{\out{</div>}}
 
@@ -229,13 +216,13 @@ css <- Gaius$
   new()$
   define(grey = '#c4c4c4')$
   change(
-    id = myButton, 
+    sel_id("myButton"), 
     backgroundColor = 'red', 
     fontSize = 20,
     color = grey
   )$
   change(
-    class = aClass,
+    sel_class("aClass"),
     color = grey
   )
 

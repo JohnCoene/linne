@@ -22,38 +22,19 @@ Gaius <- R6::R6Class(
     },
 #' @details Change
 #' 
-#' @param id,class,tag Bare name of the id, class, or tag to change,
-#' used to define the selector. Specify only of `id`, `class`, or `tag`.
+#' @param selector An object of class `selector` as returned by the `sel_*` family of functions.
 #' @param ... Declarations: properties and their values. This accepts
 #' camelcase, e.g.: `font-style` or `fontStyle`.
-#' 
-#' @section Selectors:
-#' Using the `change` method on an `id` will only apply the style to
-#' that one specific element bearing the `id`. Using it on a `class`,
-#' or `tag` changes all elements bearing said class or of said tag.
-#' 
-#' * Change `textInput(id = "hello")` with `id = hello`
-#' * Change `h1(class = "shiny")` with `class = shiny`
-#' * Change `p("Hello")` with `tag = p`
 #' 
 #' @return Self: the `Gaius` object.
 #' 
 #' @examples
-#' Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
-    change = function(..., id, class, tag){
+#' Gaius$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
+    change = function(selector, ...){
 
       # enquo
-      q_id <- rlang::enquo(id)
-      q_class <- rlang::enquo(class)
-      q_tag <- rlang::enquo(tag)
-
-      # checks
-      selection <- sum(c(rlang::quo_is_missing(q_id), rlang::quo_is_missing(q_class), rlang::quo_is_missing(q_tag)))
-      if(selection == 3) stop("Must pass one of `id`, `class`, or `tag`", call. = FALSE)
-      if(selection < 2) stop("Must specify only one of `id`, `class`, or `tag`", call. = FALSE)
-
-      # selector
-      selector <- make_selector(q_id, q_class, q_tag)
+      if(missing(selector))
+        stop("Missing `selector`, see `sel_*` family of functions", call. = FALSE)
 
       change <- list(
         selector = selector,
@@ -74,13 +55,13 @@ Gaius <- R6::R6Class(
 #'  new()$
 #'  define(primary_color = 'red')$
 #'  change(
-#'    id = myButton, 
-#'    color = "blue", 
+#'    sel_id("myButton"), 
+#'    color = primary_color, 
 #'    fontSize = 50
 #'  )$
 #'  change(
-#'    class = "container",
-#'    backgroundColor = "$primary_color"
+#'    sel_class("container"),
+#'    backgroundColor = primary_color
 #'  )$
 #'  build()
     build = function(){
@@ -90,7 +71,7 @@ Gaius <- R6::R6Class(
 #' @details Prints Generated CSS
 #' 
 #' @examples
-#' Gaius$new()$change(id = myButton, color = "blue")$print_css()
+#' Gaius$new()$change(sel_id("myButton"), color = "blue")$print_css()
     print_css = function(){
       if(is.null(private$.css))
         self$build()
@@ -109,13 +90,13 @@ Gaius <- R6::R6Class(
 #'   new()$
 #'   define(grey = '#c4c4c4')$
 #'   change(
-#'     id = myButton, 
+#'     sel_id("myButton"), 
 #'     backgroundColor = 'red', 
 #'     fontSize = 20,
 #'     color = grey
 #'   )$
 #'   change(
-#'     class = aClass,
+#'     sel_class("aClass"),
 #'     color = grey
 #'   )
 #' 

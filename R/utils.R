@@ -1,28 +1,9 @@
-make_selector <- function(id, class, tag){
-
-  # default to none for tag
-  operator <- "#"
-  name <- rlang::as_label(id)
-
-  # override for id or class
-  if(!rlang::quo_is_missing(class)){
-    operator <- "."
-    name <- rlang::as_label(class)
-  }
-
-  if(!rlang::quo_is_missing(tag)){
-    operator <- "."
-    name <- rlang::as_label(tag)
-  }
-
-  # return selector
-  sprintf("%s%s", operator, name)
-}
-
+# loop over val2css
 process_definitions <- function(def){
   purrr::map(def, val2css)
 }
 
+# parse define to valid CSS value
 val2css <- function(x){
   if(inherits(x, "numeric") || inherits(x, "integer")){
     x <- sprintf("%dpx", x)
@@ -32,6 +13,7 @@ val2css <- function(x){
   return(x)
 }
 
+# parse define as CSS
 chg2css <- function(x, def){
   selector <- purrr::pluck(x, "selector")
 
@@ -64,11 +46,22 @@ chg2css <- function(x, def){
   sprintf("%s{\n%s\n}", selector, css)
 }
 
+# loop over chg2css
 parse_changes <- function(chg, def){
   chg <- purrr::map(chg, chg2css, def)
   paste0(unlist(chg), collapse = "\n")
 }
 
+# remove unecessary tabs and new line
 minify <- function(x){
-  gsub("\\n|\\t", "", x)
+  gsub("\\n|\\t|\\s", "", x)
+}
+
+# assertthat of the poor
+# check that argument is not missing
+not_missing <- function(x){
+  if(missing(x)){
+    stop("Missing arguments", call. = FALSE)
+  } 
+  invisible()
 }

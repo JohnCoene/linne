@@ -16,7 +16,8 @@ Imports:
     R6,
     rlang,
     purrr,
-    cli
+    cli,
+    magrittr
 Suggests:
   shiny,
   htmltools

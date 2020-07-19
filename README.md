@@ -1,6 +1,7 @@
 <div>
 
 <!-- badges: start -->
+[![R build status](https://github.com/JohnCoene/gaius/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/gaius/actions)
 <!-- badges: end -->
 
 # gaius
@@ -47,7 +48,7 @@ library(gaius)
 css <- Gaius$
   new()$
   change(
-    id = myButton, # inputId = "myButton"
+    sel_id("myButton"), # inputId = "myButton"
     backgroundColor = 'red', 
     fontSize = 20,
     color = "white"
