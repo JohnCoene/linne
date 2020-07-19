@@ -24,11 +24,10 @@ process_definitions <- function(def){
 }
 
 val2css <- function(x){
-  x <- gsub("'", "", x)
   if(inherits(x, "numeric") || inherits(x, "integer")){
     x <- sprintf("%dpx", x)
   } else{
-    x <- sprintf("'%s'", x)
+    x <- sprintf("%s", x)
   }
   return(x)
 }

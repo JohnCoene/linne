@@ -99,6 +99,12 @@ Gaius <- R6::R6Class(
       
       invisible(self)
     },
+#' @details Include in Shiny
+#' 
+#' Includes the CSS in shiny, place the call to this method anywhere in the shiny UI.
+#' 
+#' @examples 
+#' 
     include = function(){
       if(is.null(private$.css))
         self$build()
@@ -106,7 +112,9 @@ Gaius <- R6::R6Class(
       min <- minify(private$.css)
 
       htmltools::singleton(
-        htmltools::tags$style(min)
+        htmltools::tags$head(
+          htmltools::tags$style(min)
+        )
       )
     },
 #' @details Print
