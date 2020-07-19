@@ -39,6 +39,42 @@ Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
 ## ------------------------------------------------
 
 Gaius$new()$change(id = myButton, color = "blue")$print_css()
+
+## ------------------------------------------------
+## Method `Gaius$include`
+## ------------------------------------------------
+
+# generate CSS
+css <- Gaius$
+  new()$
+  define(grey = '#c4c4c4')$
+  change(
+    id = myButton, 
+    backgroundColor = 'red', 
+    fontSize = 20,
+    color = grey
+  )$
+  change(
+    class = aClass,
+    color = grey
+  )
+
+# include in an app
+library(shiny)
+
+ui <- fluidPage(
+  css$include(),
+  h1("Some text", class = "aClass"),
+  actionButton("myButton", "Am I red?", class = "aClass")
+)
+
+server <- function(input, output){
+  output$myPlot <- renderPlot(plot(cars))
+}
+
+if(interactive())
+ shinyApp(ui, server)
+
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -47,6 +83,7 @@ Gaius$new()$change(id = myButton, color = "blue")$print_css()
 \item \href{#method-change}{\code{Gaius$change()}}
 \item \href{#method-build}{\code{Gaius$build()}}
 \item \href{#method-print_css}{\code{Gaius$print_css()}}
+\item \href{#method-include}{\code{Gaius$include()}}
 \item \href{#method-print}{\code{Gaius$print()}}
 \item \href{#method-clone}{\code{Gaius$clone()}}
 }
@@ -162,6 +199,62 @@ Prints Generated CSS
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
 \preformatted{Gaius$new()$change(id = myButton, color = "blue")$print_css()
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-include"></a>}}
+\if{latex}{\out{\hypertarget{method-include}{}}}
+\subsection{Method \code{include()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$include()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Include in Shiny
+
+Includes the CSS in shiny, place the call to this method anywhere in the shiny UI.
+}
+
+\subsection{Returns}{
+\link[htmltools:builder]{htmltools::tags}
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{# generate CSS
+css <- Gaius$
+  new()$
+  define(grey = '#c4c4c4')$
+  change(
+    id = myButton, 
+    backgroundColor = 'red', 
+    fontSize = 20,
+    color = grey
+  )$
+  change(
+    class = aClass,
+    color = grey
+  )
+
+# include in an app
+library(shiny)
+
+ui <- fluidPage(
+  css$include(),
+  h1("Some text", class = "aClass"),
+  actionButton("myButton", "Am I red?", class = "aClass")
+)
+
+server <- function(input, output){
+  output$myPlot <- renderPlot(plot(cars))
+}
+
+if(interactive())
+ shinyApp(ui, server)
+
 }
 \if{html}{\out{</div>}}
 

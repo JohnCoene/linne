@@ -104,7 +104,38 @@ Gaius <- R6::R6Class(
 #' Includes the CSS in shiny, place the call to this method anywhere in the shiny UI.
 #' 
 #' @examples 
+#' # generate CSS
+#' css <- Gaius$
+#'   new()$
+#'   define(grey = '#c4c4c4')$
+#'   change(
+#'     id = myButton, 
+#'     backgroundColor = 'red', 
+#'     fontSize = 20,
+#'     color = grey
+#'   )$
+#'   change(
+#'     class = aClass,
+#'     color = grey
+#'   )
 #' 
+#' # include in an app
+#' library(shiny)
+#' 
+#' ui <- fluidPage(
+#'   css$include(),
+#'   h1("Some text", class = "aClass"),
+#'   actionButton("myButton", "Am I red?", class = "aClass")
+#' )
+#' 
+#' server <- function(input, output){
+#'   output$myPlot <- renderPlot(plot(cars))
+#' }
+#' 
+#' if(interactive())
+#'  shinyApp(ui, server)
+#' 
+#' @return [htmltools::tags]
     include = function(){
       if(is.null(private$.css))
         self$build()
