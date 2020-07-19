@@ -1,5 +1,5 @@
-define <- function(x, y, ...) {
-  exprs <- rlang::enquos(x = x, y = y, ..., .ignore_empty = "all")
+define <- function(...) {
+  exprs <- rlang::enquos(..., .ignore_empty = "all")
   aes <- new_aes(exprs, env = parent.frame())
   .construct_aesthetics(aes)
 }
@@ -38,7 +38,7 @@ new_aes <- function(x, env = globalenv()) {
 
 #' @export
 print.unevaluated <- function(x, ...) {
-  cat("Aesthetics: \n")
+  cat("CSS: \n")
 
   if (length(x) == 0) {
     cat("<empty>\n")

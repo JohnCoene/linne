@@ -15,5 +15,7 @@ LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.1.1.9000
 Imports: 
-    sass,
-    R6
+    R6,
+    rlang,
+    purrr,
+    cli

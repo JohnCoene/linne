@@ -8,22 +8,48 @@ Gaius
 
 Gaius
 }
+\section{Selectors}{
+
+Using the \code{change} method on an \code{id} will only apply the style to
+that one specific element bearing the \code{id}. Using it on a \code{class},
+or \code{tag} changes all elements bearing said class or of said tag.
+\itemize{
+\item Change \code{textInput(id = "hello")} with \code{id = hello}
+\item Change \code{h1(class = "shiny")} with \code{class = shiny}
+\item Change \code{p("Hello")} with \code{tag = p}
+}
+}
+
+\examples{
+
+## ------------------------------------------------
+## Method `Gaius$define`
+## ------------------------------------------------
+
+Gaius$new()$define(baseColor = "blue")
+
+## ------------------------------------------------
+## Method `Gaius$change`
+## ------------------------------------------------
+
+Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
+
+## ------------------------------------------------
+## Method `Gaius$print_css`
+## ------------------------------------------------
+
+Gaius$new()$change(id = myButton, color = "blue")$print_css()
+}
 \section{Methods}{
 \subsection{Public methods}{
 \itemize{
-\item \href{#method-new}{\code{Gaius$new()}}
 \item \href{#method-define}{\code{Gaius$define()}}
+\item \href{#method-change}{\code{Gaius$change()}}
+\item \href{#method-build}{\code{Gaius$build()}}
+\item \href{#method-print_css}{\code{Gaius$print_css()}}
+\item \href{#method-print}{\code{Gaius$print()}}
 \item \href{#method-clone}{\code{Gaius$clone()}}
 }
-}
-\if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-new"></a>}}
-\if{latex}{\out{\hypertarget{method-new}{}}}
-\subsection{Method \code{new()}}{
-\subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Gaius$new(charset = "UTF-8")}\if{html}{\out{</div>}}
-}
-
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-define"></a>}}
@@ -31,6 +57,129 @@ Gaius
 \subsection{Method \code{define()}}{
 \subsection{Usage}{
 \if{html}{\out{<div class="r">}}\preformatted{Gaius$define(...)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{Named variables to define.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Define variables.
+}
+
+\subsection{Returns}{
+Self: the \code{Gaius} object.
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Gaius$new()$define(baseColor = "blue")
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-change"></a>}}
+\if{latex}{\out{\hypertarget{method-change}{}}}
+\subsection{Method \code{change()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$change(..., id, class, tag)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{...}}{Declarations: properties and their values. This accepts
+camelcase, e.g.: \code{font-style} or \code{fontStyle}.}
+
+\item{\code{id, class, tag}}{Bare name of the id, class, or tag to change,
+used to define the selector. Specify only of \code{id}, \code{class}, or \code{tag}.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Change
+}
+
+\subsection{Returns}{
+Self: the \code{Gaius} object.
+}
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Gaius$new()$change(id = myButton, color = "blue", fontSize = 50)
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-build"></a>}}
+\if{latex}{\out{\hypertarget{method-build}{}}}
+\subsection{Method \code{build()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$build()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Builds CSS
+
+Builds the CSS from definitions and changes.
+
+
+Gaius$
+new()$
+define(primary_color = 'red')$
+change(
+id = myButton,
+color = "blue",
+fontSize = 50
+)$
+change(
+class = "container",
+backgroundColor = "$primary_color"
+)$
+build()
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print_css"></a>}}
+\if{latex}{\out{\hypertarget{method-print_css}{}}}
+\subsection{Method \code{print_css()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$print_css()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Prints Generated CSS
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Gaius$new()$change(id = myButton, color = "blue")$print_css()
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-print"></a>}}
+\if{latex}{\out{\hypertarget{method-print}{}}}
+\subsection{Method \code{print()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Gaius$print()}\if{html}{\out{</div>}}
+}
+
+\subsection{Details}{
+Print
+
+Prints information on the Gaius object.
 }
 
 }
