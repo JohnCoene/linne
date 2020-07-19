@@ -19,3 +19,5 @@ Imports:
     rlang,
     purrr,
     cli
+Suggests:
+  htmltools

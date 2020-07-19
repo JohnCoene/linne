@@ -38,8 +38,14 @@ chg2css <- function(x, def){
 
   # apply definitions
   x$change <- purrr::map(x$change, function(value, defs){
-    if(value %in% names(defs))
-      value <- purrr::pluck(defs, value)
+    if(rlang::is_quosure(value)){
+      value <- rlang::as_label(value)
+
+      if(value %in% names(defs))
+        value <- purrr::pluck(defs, value)
+      else 
+        stop(sprintf("Cannot find `%s`, did you `define` it?", value), call. = FALSE)
+    }
 
     return(value)
   }, defs = def)
