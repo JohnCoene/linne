@@ -8,6 +8,13 @@
 
 <title>Linne — Linne • linne</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -44,6 +51,11 @@
 <meta property="og:title" content="Linne — Linne" />
 <meta property="og:description" content="Linne
 Linne" />
+<meta property="og:image" content="http://linne.john-coene.com/reference/figures/linne_social.png" />
+<meta property="og:image:alt" content="CSS in R" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@jdatap" />
+<meta name="twitter:site" content="@jdatap" />
 
 
 
@@ -181,6 +193,7 @@ a comprehensive list of them can be found on
 <li><p><a href='#method-define'><code>Linne$define()</code></a></p></li>
 <li><p><a href='#method-change'><code>Linne$change()</code></a></p></li>
 <li><p><a href='#method-build'><code>Linne$build()</code></a></p></li>
+<li><p><a href='#method-get_css'><code>Linne$get_css()</code></a></p></li>
 <li><p><a href='#method-show_css'><code>Linne$show_css()</code></a></p></li>
 <li><p><a href='#method-import'><code>Linne$import()</code></a></p></li>
 <li><p><a href='#method-include'><code>Linne$include()</code></a></p></li>
@@ -193,10 +206,10 @@ a comprehensive list of them can be found on
 <a id="method-define"></a></p><h3>Method <code>define()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>define</span>(<span class='kw'>...</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>define</span>(<span class='no'>...</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>...</code></dt><dd><p>Named variables to define.</p></dd>
 
 </dl><p></div></p>
@@ -206,16 +219,16 @@ a comprehensive list of them can be found on
 <h3>Returns</h3>
 <p>Self: the <code>Linne</code> object.</p>
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>define</span>(baseColor = <span class='st'>"blue"</span>)</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>define</span>(<span class='kw'>baseColor</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-change"></a></p><h3>Method <code>change()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>change</span>(<span class='kw'>selector</span>, <span class='kw'>...</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>change</span>(<span class='no'>selector</span>, <span class='no'>...</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>selector</code></dt><dd><p>An object of class <code>selector</code> as returned by the <code>sel_*</code> family of functions.</p></dd>
 
 <dt><code>...</code></dt><dd><p>Declarations: properties and their values. This accepts
@@ -228,13 +241,13 @@ camelcase, e.g.: <code>font-style</code> or <code>fontStyle</code>.</p></dd>
 <h3>Returns</h3>
 <p>Self: the <code>Linne</code> object.</p>
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>50</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-build"></a></p><h3>Method <code><a href='https://rdrr.io/r/utils/PkgUtils.html'>build()</a></code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/utils/PkgUtils.html'>build</a></span>()</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/utils/PkgUtils.html'>build</a></span>()</pre><p></div></p>
 
 <h3>Details</h3>
 <p>Builds CSS</p>
@@ -255,13 +268,29 @@ backgroundColor = primary_color
 build()</p>
 
 <p><hr>
+<a id="method-get_css"></a></p><h3>Method <code>get_css()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>get_css</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl'>
+<dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Retrieve the CSS</p>
+
+<h3>Returns</h3>
+<p>A string.</p>
+<p><hr>
 <a id="method-show_css"></a></p><h3>Method <code>show_css()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>show_css</span>(build = <span class='fl'>TRUE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>show_css</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
 
 </dl><p></div></p>
@@ -269,34 +298,34 @@ build()</p>
 <p>Prints Generated CSS</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>show_css</span>()</pre><p></div></p>
 
 <p><hr>
 <a id="method-import"></a></p><h3>Method <code>import()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>import</span>(<span class='kw'>url</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>import</span>(<span class='no'>url</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>url</code></dt><dd><p>URL to import.</p></dd>
 
 </dl><p></div></p>
 <h3>Details</h3>
 <p>Import</p>
-<p>Import from a url or path, generally a font.</p>
+<p>Import from a url or path.</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-include"></a></p><h3>Method <code>include()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>include</span>(build = <span class='fl'>TRUE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>include</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
 
 </dl><p></div></p>
@@ -308,45 +337,44 @@ build()</p>
 <p><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>htmltools::tags</a></p>
 <h3>Examples</h3>
 <p><div class="r example copy"></p><pre><span class='co'># generate CSS</span>
-<span class='kw'>css</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
-  <span class='fu'>new</span>()<span class='op'>$</span>
-  <span class='fu'>define</span>(grey = <span class='st'>'#c4c4c4'</span>)<span class='op'>$</span>
+<span class='no'>css</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='no'>Linne</span>$
+  <span class='fu'>new</span>()$
+  <span class='fu'>define</span>(<span class='kw'>grey</span> <span class='kw'>=</span> <span class='st'>'#c4c4c4'</span>)$
   <span class='fu'>change</span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), 
-    backgroundColor = <span class='st'>'red'</span>, 
-    fontSize = <span class='fl'>20</span>,
-    color = <span class='kw'>grey</span>
-  )<span class='op'>$</span>
+    <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>),
+    <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>'red'</span>,
+    <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+    <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>grey</span>
+  )$
   <span class='fu'>change</span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
-    color = <span class='kw'>grey</span>
+    <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
+    <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>grey</span>
   )
 
 <span class='co'># include in an app</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
 
-<span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-  <span class='kw'>css</span><span class='op'>$</span><span class='fu'>include</span>(),
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span>(<span class='st'>"Some text"</span>, class = <span class='st'>"aClass"</span>),
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"myButton"</span>, <span class='st'>"Am I red?"</span>, class = <span class='st'>"aClass"</span>)
+<span class='no'>ui</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='no'>css</span>$<span class='fu'>include</span>(),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>h1</a></span>(<span class='st'>"Some text"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"myButton"</span>, <span class='st'>"Am I red?"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>)
 )
 
-<span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>){
-  <span class='kw'>output</span><span class='op'>$</span><span class='kw'>myPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>(<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>cars</span>))
+<span class='no'>server</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
+  <span class='no'>output</span>$<span class='no'>myPlot</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars</span>))
 }
 
-<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
-</pre><p></div></p>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-write"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/write.html'>write()</a></code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(path = <span class='st'>"style.css"</span>, pretty = <span class='fl'>FALSE</span>, build = <span class='fl'>TRUE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"style.css"</span>, <span class='kw'>pretty</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>path</code></dt><dd><p>Path to file.</p></dd>
 
 <dt><code>pretty</code></dt><dd><p>Whether to keep tabs and newlines.</p></dd>
@@ -366,7 +394,7 @@ build()</p>
 <a id="method-print"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/print.html'>print()</a></code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span>()</pre><p></div></p>
 
 <h3>Details</h3>
 <p>Print</p>
@@ -376,10 +404,10 @@ build()</p>
 <a id="method-inject"></a></p><h3>Method <code>inject()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>inject</span>(build = <span class='fl'>TRUE</span>, session = <span class='kw'>shiny</span>::<span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>inject</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>session</span> <span class='kw'>=</span> <span class='kw pkg'>shiny</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/shiny/man/domains.html'>getDefaultReactiveDomain</a></span>())</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
 
 <dt><code>session</code></dt><dd><p>A valid shiny session.</p></dd>
@@ -390,40 +418,39 @@ build()</p>
 <p>Dynamically inject CSS from the server of a shiny application.</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+<p><div class="r example copy"></p><pre><span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
 
-<span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/linne/man/useLinne.html'>useLinne</a></span>(),
+<span class='no'>ui</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='useLinne.html'>useLinne</a></span>(),
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"change"</span>, <span class='st'>"Change me!"</span>)
 )
 
-<span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>){
+<span class='no'>server</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
 
-  <span class='kw'>linne</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
-    <span class='fu'>new</span>()<span class='op'>$</span>
+  <span class='no'>linne</span> <span class='kw'>&amp;</span><span class='no'>lt</span>;- <span class='no'>Linne</span>$
+    <span class='fu'>new</span>()$
     <span class='fu'>change</span>(
-      <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
-      color = <span class='st'>"white"</span>,
-      backgroundColor = <span class='st'>"black"</span>
+      <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+      <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>"black"</span>
     )
 
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>change</span>, {
-    <span class='kw'>linne</span><span class='op'>$</span><span class='fu'>inject</span>()
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>change</span>, {
+    <span class='no'>linne</span>$<span class='fu'>inject</span>()
   })
 
 }
 
-<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
-</pre><p></div></p>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-clone"></a></p><h3>Method <code>clone()</code></h3>
 <p>The objects of this class are cloneable with this method.</p><h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>clone</span>(deep = <span class='fl'>FALSE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>clone</span>(<span class='kw'>deep</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
-<p><div class="arguments"></p><dl>
+<p><div class="arguments"></p><dl'>
 <dt><code>deep</code></dt><dd><p>Whether to make a deep clone.</p></dd>
 
 </dl><p></div></p>
@@ -436,98 +463,97 @@ build()</p>
 <span class='co'>## Method `Linne$define`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>define</span>(baseColor = <span class='st'>"blue"</span>)
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>define</span>(<span class='kw'>baseColor</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$change`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>50</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$show_css`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</div><div class='output co'>#&gt; #myButton{
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>show_css</span>()</div><div class='output co'>#&gt; #myButton{
 #&gt; 	color:blue;
 #&gt; }</div><div class='input'>
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$import`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$include`</span>
 <span class='co'>## ------------------------------------------------</span>
 
 <span class='co'># generate CSS</span>
-<span class='kw'>css</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
-  <span class='fu'>new</span>()<span class='op'>$</span>
-  <span class='fu'>define</span>(grey = <span class='st'>'#c4c4c4'</span>)<span class='op'>$</span>
+<span class='no'>css</span> <span class='kw'>&lt;-</span> <span class='no'>Linne</span>$
+  <span class='fu'>new</span>()$
+  <span class='fu'>define</span>(<span class='kw'>grey</span> <span class='kw'>=</span> <span class='st'>'#c4c4c4'</span>)$
   <span class='fu'>change</span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), 
-    backgroundColor = <span class='st'>'red'</span>, 
-    fontSize = <span class='fl'>20</span>,
-    color = <span class='kw'>grey</span>
-  )<span class='op'>$</span>
+    <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>),
+    <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>'red'</span>,
+    <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>20</span>,
+    <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>grey</span>
+  )$
   <span class='fu'>change</span>(
-    <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
-    color = <span class='kw'>grey</span>
+    <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
+    <span class='kw'>color</span> <span class='kw'>=</span> <span class='no'>grey</span>
   )
 
 <span class='co'># include in an app</span>
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
 
-<span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-  <span class='kw'>css</span><span class='op'>$</span><span class='fu'>include</span>(),
-  <span class='fu'><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>h1</a></span>(<span class='st'>"Some text"</span>, class = <span class='st'>"aClass"</span>),
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"myButton"</span>, <span class='st'>"Am I red?"</span>, class = <span class='st'>"aClass"</span>)
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='no'>css</span>$<span class='fu'>include</span>(),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>h1</a></span>(<span class='st'>"Some text"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>),
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"myButton"</span>, <span class='st'>"Am I red?"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>)
 )</div><div class='output co'>#&gt; <span class='message'><span style='color: #BBBB00;'>!</span><span> Using `include` in prod is not advised, see `write` method</span></div><div class='input'>
-<span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>){
-  <span class='kw'>output</span><span class='op'>$</span><span class='kw'>myPlot</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>(<span class='fu'><a href='https://rdrr.io/r/graphics/plot.default.html'>plot</a></span>(<span class='kw'>cars</span>))
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
+  <span class='no'>output</span>$<span class='no'>myPlot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars</span>))
 }
 
-<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
 
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$write`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), fontStyle = <span class='st'>"italic"</span>)<span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='st'>"styles.css"</span>)
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), <span class='kw'>fontStyle</span> <span class='kw'>=</span> <span class='st'>"italic"</span>)$<span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='st'>"styles.css"</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$inject`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='kw'><a href='http://shiny.rstudio.com'>shiny</a></span>)
+<span class='fu'><a href='https://rdrr.io/r/base/library.html'>library</a></span>(<span class='no'>shiny</span>)
 
-<span class='kw'>ui</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
-  <span class='fu'><a href='https://rdrr.io/pkg/linne/man/useLinne.html'>useLinne</a></span>(),
+<span class='no'>ui</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/fluidPage.html'>fluidPage</a></span>(
+  <span class='fu'><a href='useLinne.html'>useLinne</a></span>(),
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"change"</span>, <span class='st'>"Change me!"</span>)
 )
 
-<span class='kw'>server</span> <span class='op'>&lt;-</span> <span class='fu'>function</span>(<span class='kw'>input</span>, <span class='kw'>output</span>){
+<span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
 
-  <span class='kw'>linne</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
-    <span class='fu'>new</span>()<span class='op'>$</span>
+  <span class='no'>linne</span> <span class='kw'>&lt;-</span> <span class='no'>Linne</span>$
+    <span class='fu'>new</span>()$
     <span class='fu'>change</span>(
-      <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
-      color = <span class='st'>"white"</span>,
-      backgroundColor = <span class='st'>"black"</span>
+      <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
+      <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"white"</span>,
+      <span class='kw'>backgroundColor</span> <span class='kw'>=</span> <span class='st'>"black"</span>
     )
 
-  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='kw'>input</span><span class='op'>$</span><span class='kw'>change</span>, {
-    <span class='kw'>linne</span><span class='op'>$</span><span class='fu'>inject</span>()
+  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/observeEvent.html'>observeEvent</a></span>(<span class='no'>input</span>$<span class='no'>change</span>, {
+    <span class='no'>linne</span>$<span class='fu'>inject</span>()
   })
 
 }
 
-<span class='co'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='kw'>ui</span>, <span class='kw'>server</span>)
-</div></span></pre>
+<span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -543,7 +569,7 @@ build()</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>

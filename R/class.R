@@ -82,6 +82,15 @@ Linne <- R6::R6Class(
       private$.build()
       invisible(self)
     },
+#' @details Retrieve the CSS
+#' 
+#' @param build Whether to build the CSS with the `build` method.
+#' 
+#' @return A string.
+    get_css = function(build = TRUE){
+      private$.build()
+      private$.minified()
+    },
 #' @details Prints Generated CSS
 #' 
 #' @param build Whether to build the CSS with the `build` method.
@@ -237,7 +246,6 @@ Linne <- R6::R6Class(
 #' 
 #' if(interactive())
 #'  shinyApp(ui, server)
-#' 
     inject = function(build = TRUE, session = shiny::getDefaultReactiveDomain()){
       
       if(interactive())
@@ -275,9 +283,9 @@ Linne <- R6::R6Class(
       
       css <- ""
       if(length(private$.imports))
-        css <- sprintf("@import url('%s');\n", private$.imports)
+        css <- sprintf("@import url('%s');\n\n", private$.imports)
 
-      changes <- paste0(unlist(chg), collapse = "\n")
+      changes <- paste0(unlist(chg), collapse = "\n\n")
 
       private$.css <- paste0(css, changes, collapse = "\n")
       invisible()

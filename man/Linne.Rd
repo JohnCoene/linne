@@ -122,6 +122,7 @@ if(interactive())
 \item \href{#method-define}{\code{Linne$define()}}
 \item \href{#method-change}{\code{Linne$change()}}
 \item \href{#method-build}{\code{Linne$build()}}
+\item \href{#method-get_css}{\code{Linne$get_css()}}
 \item \href{#method-show_css}{\code{Linne$show_css()}}
 \item \href{#method-import}{\code{Linne$import()}}
 \item \href{#method-include}{\code{Linne$include()}}
@@ -225,6 +226,29 @@ backgroundColor = primary_color
 build()
 }
 
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-get_css"></a>}}
+\if{latex}{\out{\hypertarget{method-get_css}{}}}
+\subsection{Method \code{get_css()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Linne$get_css(build = TRUE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{build}}{Whether to build the CSS with the \code{build} method.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Retrieve the CSS
+}
+
+\subsection{Returns}{
+A string.
+}
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-show_css"></a>}}
