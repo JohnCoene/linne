@@ -24,6 +24,6 @@ when_focus <- function(selector){
 
 whens <- function(selector, prefix) UseMethod("whens")
 
-whens.selector <- function(selector, prefix){
-  construct_selector("%s:%s", prefix, selector)
+whens.selector <- function(selector, suffix){
+  construct_selector("%s:%s", selector, suffix)
 }

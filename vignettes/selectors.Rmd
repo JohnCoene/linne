@@ -58,8 +58,8 @@ sel_tag('div') %with% sel_class('aClass')
 You can also use the `when_*` family of functions to narrow the selection based on the state of the element.
 
 * `when_active()` - Only select only active links.
-* `when_hover` - Only select when the element is hovered.
-* `when_focus` - Only select when the elements is focused.
+* `when_hover()` - Only select when the element is hovered.
+* `when_focus()` - Only select when the elements is focused.
 
 __Examples__
 

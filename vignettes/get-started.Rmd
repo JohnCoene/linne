@@ -132,3 +132,35 @@ Linne$
   )$
   show_css()
 ```
+
+## Examples
+
+Below using child to only apply changes to the `h2` tag within the `container`.
+
+```r
+library(shiny)
+library(linne)
+
+# change color fo h2 inside container.
+linne <- Linne$
+  new()$
+  change(
+    sel_class("container") %child% sel_tag("h2"),
+    color = "#2a9d8f"
+  )
+
+ui <- fluidPage(
+  linne$include(), # include CSS
+  h2("Linne in action!"),
+  div(
+    class = "container",
+    h2("This is a different color")
+  )
+)
+
+server <- function(input, output){}
+
+shinyApp(ui, server)
+```
+
+![Select child](child.png)

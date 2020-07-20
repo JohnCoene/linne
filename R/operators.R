@@ -27,7 +27,7 @@
 #' @name pipes
 #' @export
 `%child%` <- function(lhs, rhs){
-  construct_selector("%s>%s", lhs, rhs)
+  construct_selector("%s %s", lhs, rhs)
 }
 
 #' @name pipes

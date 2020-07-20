@@ -2,7 +2,7 @@ url: http://linne.john-coene.com
 
 template:
   params:
-    bootswatch: paper
+    bootswatch: readable
     ganalytics: UA-74544116-1
 
 navbar:

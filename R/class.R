@@ -211,6 +211,7 @@ Linne <- R6::R6Class(
     .minified = function(){
       gsub("\\n|\\t", "", private$.css)
     },
+    # checks that definitions do not already exist
     .check_definitions = function(new_def){
       duplicates <- names(new_def) %in% names(private$.definitions)
 
@@ -220,6 +221,7 @@ Linne <- R6::R6Class(
       msg_stop <- paste0("'", names(new_def)[duplicates], "' already defined", collapse = "', '")  
       stop(msg_stop, call. = FALSE)
     },
+    # build internal
     .build = function(){
       # process changes
       chg <- purrr::map(private$.changes, chg2css, private$.definitions)
