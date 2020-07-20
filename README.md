@@ -8,7 +8,7 @@
 
 CSS in R
 
-[website](https://linne.john-coene.com/) | [Get Started](https://linne.john-coene.com/articles/get-started.html)
+[Website](https://linne.john-coene.com/) | [Get Started](https://linne.john-coene.com/articles/get-started.html)
 
 </div>
 
