@@ -2,10 +2,10 @@ library(linne)
 
 Linne$
   new()$
-  import("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Ubuntu+Mono&display=swap")$
+  import("https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Fira+Code:wght@300&display=swap")$
   define(
-    dark = "#264653!important",
-    orange = "#e76f51!important"
+    dark = "#f4a717 !important",
+    orange = "#474757 !important"
   )$
   change( # use Dosis
     sel_all(),
@@ -13,18 +13,14 @@ Linne$
   )$
   change( # use Ubuntu font for code 
     sel_tag("code") %or% sel_tag("pre"),
-    fontFamily = "'Ubuntu Mono', monospace"
-  )$
-  change( # change h1 color
-    sel_tag("h1"),
-    color = dark
+    fontFamily = "'Fira Code', monospace"
   )$
   change(
     sel_attr("toc", "data-toggle") %child% sel_tag("a"),
     color = orange,
   )$
   change( # change other h's
-    sel_tag("h2") %or% sel_tag("h3") %or% sel_tag("h4"),
+    sel_tag("h1") %or% sel_tag("h2") %or% sel_tag("h3") %or% sel_tag("h4"),
     color = orange
   )$
   change(
@@ -54,6 +50,10 @@ Linne$
     sel_class("dropdown-menu") %child% sel_tag("li") %child% sel_tag("a"),
     color = "white",
     backgroundColor = dark
+  )$
+  change(
+    sel_tag("blockquote"),
+    borderColor = dark
   )$
   show_css()$
   write("pkgdown/extra.css", pretty = TRUE)

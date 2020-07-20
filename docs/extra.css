@@ -1,38 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Ubuntu+Mono&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Fira+Code:wght@300&display=swap');
 *{
 	font-family:'Dosis', sans-serif;
 }
 code,pre{
-	font-family:'Ubuntu Mono', monospace;
-}
-h1{
-	color:#264653!important;
+	font-family:'Fira Code', monospace;
 }
 [data-toggle='toc'] a{
-	color:#e76f51!important;
+	color:#474757 !important;
 }
-h2,h3,h4{
-	color:#e76f51!important;
+h1,h2,h3,h4{
+	color:#474757 !important;
 }
 #pkgdown-sidebar h2{
-	color:#264653!important;
+	color:#f4a717 !important;
 }
 .navbar-default{
-	background-color:#264653!important;
+	background-color:#f4a717 !important;
 	color:white;
 }
 .navbar-nav li a{
 	color:white !important;
 }
 a{
-	color:#e76f51!important;
+	color:#474757 !important;
 }
 .btn-copy-ex{
-	background-color:#264653!important;
-	color:#e76f51!important;
-	border-color:#264653!important;
+	background-color:#f4a717 !important;
+	color:#474757 !important;
+	border-color:#f4a717 !important;
 }
 .dropdown-menu li a{
 	color:white;
-	background-color:#264653!important;
+	background-color:#f4a717 !important;
+}
+blockquote{
+	border-color:#f4a717 !important;
 }

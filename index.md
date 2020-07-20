@@ -1,6 +1,10 @@
 # linne
 
+<img src="logo.png" style="max-height:250px;float:right;" align="right"/>
+
 linne makes basic CSS easier for R users. It is intended as a stepping stone to actually writing CSS and SCSS.
+
+> Linne is Gaelic for cascade (CSS)
 
 ## Installation
 

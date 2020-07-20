@@ -17,9 +17,9 @@ Imports:
     rlang,
     purrr,
     cli,
+    shiny,
     magrittr
 Suggests:
-    shiny,
     htmltools,
     knitr,
     rmarkdown

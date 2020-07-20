@@ -272,7 +272,7 @@ Prints Generated CSS
 \subsection{Details}{
 Import
 
-Import from a url or path, generally a font.
+Import from a url or path.
 }
 
 \subsection{Examples}{
