@@ -74,23 +74,40 @@ Linne <- R6::R6Class(
 #'  )$
 #'  build()
     build = function(){
-      private$.css <- parse_changes(chg = private$.changes, def = private$.definitions)
-      return(self)
+      private$.build()
+      invisible(self)
     },
 #' @details Prints Generated CSS
 #' 
+#' @param build Whether to build the CSS with the `build` method.
+#' 
 #' @examples
-#' Linne$new()$change(sel_id("myButton"), color = "blue")$print_css()
-    print_css = function(){
-      if(is.null(private$.css)) self$build()
+#' Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+    show_css = function(build = TRUE){
+      if(build) self$build()
 
       cat(private$.css)
       
       invisible(self)
     },
+#' @details Import
+#' 
+#' Import from a url or path, generally a font.
+#' 
+#' @param url URL to import.
+#' 
+#' @examples 
+#' Linne$new()$import('https://fonts.googleapis.com/css2?family=Roboto')
+    import = function(url){
+      not_missing(url)
+      private$.imports <- c(private$.imports, url)
+      invisible(self)
+    },
 #' @details Include in Shiny
 #' 
 #' Includes the CSS in shiny, place the call to this method anywhere in the shiny UI.
+#' 
+#' @param build Whether to build the CSS with the `build` method.
 #' 
 #' @examples 
 #' # generate CSS
@@ -125,8 +142,8 @@ Linne <- R6::R6Class(
 #'  shinyApp(ui, server)
 #' 
 #' @return [htmltools::tags]
-    include = function(){
-      if(is.null(private$.css)) self$build()
+    include = function(build = TRUE){
+      if(build) self$build()
       
       min <- private$minified()
 
@@ -140,10 +157,14 @@ Linne <- R6::R6Class(
 #' 
 #' Write the CSS to file.
 #' 
+#' @param build Whether to build the CSS with the `build` method.
 #' @param path Path to file.
 #' @param pretty Whether to keep tabs and newlines.
-    save = function(path = "style.css", pretty = FALSE){
-      if(is.null(private$.css)) self$build()
+#' 
+#' @examples
+#' \dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+    save = function(path = "style.css", pretty = FALSE, build = TRUE){
+      if(build) self$build()
 
       if(!pretty)
         min <- private$minified()
@@ -170,20 +191,31 @@ Linne <- R6::R6Class(
       
       cat("\n")
 
-      cli::cli_alert_info("Use `print_css` method to see the CSS")
+      cli::cli_alert_info("Use `show_css` method to see the CSS")
 
       invisible(self)
     }
   ),
   private = list(
     .css = NULL,
+    .imports = c(),
     .changes = list(),
     .definitions = list(),
     minified = function(){
       gsub("\\n|\\t|\\s", "", private$.css)
     },
-    check_definitions = function(def){
+    .build = function(){
+      # process changes
+      chg <- purrr::map(private$.changes, chg2css, private$.definitions)
+      
+      css <- ""
+      if(length(private$.imports))
+        css <- sprintf("@import url('%s');\n", private$.imports)
 
+      changes <- paste0(unlist(chg), collapse = "\n")
+
+      private$.css <- paste0(css, changes, collapse = "\n")
+      invisible()
     }
   )
 )

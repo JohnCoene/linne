@@ -46,12 +46,6 @@ chg2css <- function(x, def){
   sprintf("%s{\n%s\n}", selector, css)
 }
 
-# loop over chg2css
-parse_changes <- function(chg, def){
-  chg <- purrr::map(chg, chg2css, def)
-  paste0(unlist(chg), collapse = "\n")
-}
-
 # assertthat of the poor
 # check that argument is not missing
 not_missing <- function(x){

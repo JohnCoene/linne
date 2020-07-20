@@ -32,10 +32,16 @@ Linne$new()$define(baseColor = "blue")
 Linne$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
 
 ## ------------------------------------------------
-## Method `Linne$print_css`
+## Method `Linne$show_css`
 ## ------------------------------------------------
 
-Linne$new()$change(sel_id("myButton"), color = "blue")$print_css()
+Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+
+## ------------------------------------------------
+## Method `Linne$import`
+## ------------------------------------------------
+
+Linne$new()$import('https://fonts.googleapis.com/css2?family=Roboto')
 
 ## ------------------------------------------------
 ## Method `Linne$include`
@@ -72,6 +78,12 @@ server <- function(input, output){
 if(interactive())
  shinyApp(ui, server)
 
+
+## ------------------------------------------------
+## Method `Linne$save`
+## ------------------------------------------------
+
+\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -79,7 +91,8 @@ if(interactive())
 \item \href{#method-define}{\code{Linne$define()}}
 \item \href{#method-change}{\code{Linne$change()}}
 \item \href{#method-build}{\code{Linne$build()}}
-\item \href{#method-print_css}{\code{Linne$print_css()}}
+\item \href{#method-show_css}{\code{Linne$show_css()}}
+\item \href{#method-import}{\code{Linne$import()}}
 \item \href{#method-include}{\code{Linne$include()}}
 \item \href{#method-save}{\code{Linne$save()}}
 \item \href{#method-print}{\code{Linne$print()}}
@@ -182,20 +195,57 @@ build()
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-print_css"></a>}}
-\if{latex}{\out{\hypertarget{method-print_css}{}}}
-\subsection{Method \code{print_css()}}{
+\if{html}{\out{<a id="method-show_css"></a>}}
+\if{latex}{\out{\hypertarget{method-show_css}{}}}
+\subsection{Method \code{show_css()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Linne$print_css()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Linne$show_css(build = TRUE)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{build}}{Whether to build the CSS with the \code{build} method.}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Details}{
 Prints Generated CSS
 }
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{Linne$new()$change(sel_id("myButton"), color = "blue")$print_css()
+\preformatted{Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+}
+\if{html}{\out{</div>}}
+
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-import"></a>}}
+\if{latex}{\out{\hypertarget{method-import}{}}}
+\subsection{Method \code{import()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Linne$import(url)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{url}}{URL to import.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Import
+
+Import from a url or path, generally a font.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Linne$new()$import('https://fonts.googleapis.com/css2?family=Roboto')
 }
 \if{html}{\out{</div>}}
 
@@ -207,9 +257,16 @@ Prints Generated CSS
 \if{latex}{\out{\hypertarget{method-include}{}}}
 \subsection{Method \code{include()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Linne$include()}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Linne$include(build = TRUE)}\if{html}{\out{</div>}}
 }
 
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{build}}{Whether to build the CSS with the \code{build} method.}
+}
+\if{html}{\out{</div>}}
+}
 \subsection{Details}{
 Include in Shiny
 
@@ -263,7 +320,7 @@ if(interactive())
 \if{latex}{\out{\hypertarget{method-save}{}}}
 \subsection{Method \code{save()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Linne$save(path = "style.css", pretty = FALSE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Linne$save(path = "style.css", pretty = FALSE, build = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -272,6 +329,8 @@ if(interactive())
 \item{\code{path}}{Path to file.}
 
 \item{\code{pretty}}{Whether to keep tabs and newlines.}
+
+\item{\code{build}}{Whether to build the CSS with the \code{build} method.}
 }
 \if{html}{\out{</div>}}
 }
@@ -279,6 +338,14 @@ if(interactive())
 Save
 
 Write the CSS to file.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+}
+\if{html}{\out{</div>}}
+
 }
 
 }
