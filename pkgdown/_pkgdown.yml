@@ -12,6 +12,7 @@ template:
       src: man/figures/linne_social.png
       alt: "CSS in R"
     twitter:
+      image: man/figures/linne_social.png
       creator: "@jdatap"
       site: "@jdatap"
       card: summary_large_image
@@ -39,6 +40,9 @@ navbar:
           href: articles/rmarkdown.html
         - text: Advanced
           href: articles/advanced.html
+  right:
+    - icon: fa-github fa-lg
+      href: https://github.com/JohnCoene/linne
 
 reference:
   - title: "Linne"
