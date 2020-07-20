@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Fira+Code:wght@300&display=swap');
-*{
+body{
 	font-family:'Dosis', sans-serif;
 }
-code,pre{
+code,pre,.r{
 	font-family:'Fira Code', monospace;
 }
 [data-toggle='toc'] a{
@@ -35,4 +35,8 @@ a{
 }
 blockquote{
 	border-color:#f4a717 !important;
+}
+.btn-primary{
+	border:#f4a717 !important;
+	background-color:#f4a717 !important;
 }

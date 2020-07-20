@@ -46,7 +46,7 @@ shinyApp(ui, server)
 
 ## Inject
 
-You can generate the CSS using `Line` as per usual then inject it dynamically in the page with the `inject` method. Note that for this you will need to place `useLinne` in UI of shiny page.
+You can generate the CSS using `Linne` as per usual then inject it dynamically in the page with the `inject` method. Note that for this you will need to place `useLinne` in UI of shiny page.
 
 ```r
 library(linne)

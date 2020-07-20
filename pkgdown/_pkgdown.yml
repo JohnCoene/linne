@@ -1,9 +1,20 @@
 url: http://linne.john-coene.com
+home:
+  title: CSS in R
+  description: Your stepping stone to learning CSS and Sass.
 
 template:
   params:
     bootswatch: readable
     ganalytics: UA-74544116-1
+  opengraph:
+    image:
+      src: man/figures/linne_social.png
+      alt: "CSS in R"
+    twitter:
+      creator: "@jdatap"
+      site: "@jdatap"
+      card: summary_large_image
 
 navbar:
   title: "linne"

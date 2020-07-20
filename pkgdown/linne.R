@@ -8,11 +8,11 @@ Linne$
     orange = "#474757 !important"
   )$
   change( # use Dosis
-    sel_all(),
+    sel_tag("body"),
     fontFamily = "'Dosis', sans-serif"
   )$
   change( # use Ubuntu font for code 
-    sel_tag("code") %or% sel_tag("pre"),
+    sel_tag("code") %or% sel_tag("pre") %or% sel_class("r"),
     fontFamily = "'Fira Code', monospace"
   )$
   change(
@@ -54,6 +54,11 @@ Linne$
   change(
     sel_tag("blockquote"),
     borderColor = dark
+  )$
+  change(
+    sel_class("btn-primary"),
+    border = dark,
+    backgroundColor = dark
   )$
   show_css()$
   write("pkgdown/extra.css", pretty = TRUE)

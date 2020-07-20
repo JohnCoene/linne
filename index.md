@@ -2,9 +2,11 @@
 
 <img src="logo.png" style="max-height:250px;float:right;" align="right"/>
 
-linne makes basic CSS easier for R users. It is intended as a stepping stone to actually writing CSS and SCSS.
+linne makes basic CSS easier for R users. It is intended as a stepping stone to actually writing CSS and Sass.
 
-> Linne is Gaelic for cascade (CSS)
+> Linne is old Gaelic for cascade
+
+<a href="articles/get-started.html" class="btn btn-primary">Get Started</a>
 
 ## Installation
 
@@ -17,7 +19,7 @@ remotes::install_github("JohnCoene/linne")
 
 ## Example
 
-Using linne to place a logo in the top right of the app.
+Using linne to place a floating logo in the top right of a shiny app.
 
 ```r
 library(shiny)
