@@ -38,6 +38,8 @@
 
 
 
+  <link href="../extra.css" rel="stylesheet">
+  
 
 <meta property="og:title" content="Linne — Linne" />
 <meta property="og:description" content="Linne
@@ -170,7 +172,8 @@ a comprehensive list of them can be found on
 <li><p><a href='#method-define'><code>Linne$define()</code></a></p></li>
 <li><p><a href='#method-change'><code>Linne$change()</code></a></p></li>
 <li><p><a href='#method-build'><code>Linne$build()</code></a></p></li>
-<li><p><a href='#method-print_css'><code>Linne$print_css()</code></a></p></li>
+<li><p><a href='#method-show_css'><code>Linne$show_css()</code></a></p></li>
+<li><p><a href='#method-import'><code>Linne$import()</code></a></p></li>
 <li><p><a href='#method-include'><code>Linne$include()</code></a></p></li>
 <li><p><a href='#method-save'><code>Linne$save()</code></a></p></li>
 <li><p><a href='#method-print'><code>Linne$print()</code></a></p></li>
@@ -242,23 +245,51 @@ backgroundColor = primary_color
 build()</p>
 
 <p><hr>
-<a id="method-print_css"></a></p><h3>Method <code>print_css()</code></h3>
+<a id="method-show_css"></a></p><h3>Method <code>show_css()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>print_css</span>()</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>show_css</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl'>
+<dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
+
+</dl><p></div></p>
 <h3>Details</h3>
 <p>Prints Generated CSS</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>print_css</span>()</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>show_css</span>()</pre><p></div></p>
+
+<p><hr>
+<a id="method-import"></a></p><h3>Method <code>import()</code></h3>
+
+<h3>Usage</h3>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>import</span>(<span class='no'>url</span>)</pre><p></div></p>
+
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl'>
+<dt><code>url</code></dt><dd><p>URL to import.</p></dd>
+
+</dl><p></div></p>
+<h3>Details</h3>
+<p>Import</p>
+<p>Import from a url or path, generally a font.</p>
+
+<h3>Examples</h3>
+<p><div class="r example copy"></p><pre><span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-include"></a></p><h3>Method <code>include()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>include</span>()</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'>include</span>(<span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
+<h3>Arguments</h3>
+<p><div class="arguments"></p><dl'>
+<dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
+
+</dl><p></div></p>
 <h3>Details</h3>
 <p>Include in Shiny</p>
 <p>Includes the CSS in shiny, place the call to this method anywhere in the shiny UI.</p>
@@ -301,7 +332,7 @@ build()</p>
 <a id="method-save"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/save.html'>save()</a></code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"style.css"</span>, <span class='kw'>pretty</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"style.css"</span>, <span class='kw'>pretty</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl'>
@@ -309,10 +340,16 @@ build()</p>
 
 <dt><code>pretty</code></dt><dd><p>Whether to keep tabs and newlines.</p></dd>
 
+<dt><code>build</code></dt><dd><p>Whether to build the CSS with the <code>build</code> method.</p></dd>
+
 </dl><p></div></p>
 <h3>Details</h3>
 <p>Save</p>
 <p>Write the CSS to file.</p>
+
+<h3>Examples</h3>
+<p><div class="r example copy"></p><pre>\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+</pre><p></div></p>
 
 <p><hr>
 <a id="method-print"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/print.html'>print()</a></code></h3>
@@ -352,12 +389,18 @@ build()</p>
 <span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>, <span class='kw'>fontSize</span> <span class='kw'>=</span> <span class='fl'>50</span>)
 
 <span class='co'>## ------------------------------------------------</span>
-<span class='co'>## Method `Linne$print_css`</span>
+<span class='co'>## Method `Linne$show_css`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>print_css</span>()</div><div class='output co'>#&gt; #myButton{
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), <span class='kw'>color</span> <span class='kw'>=</span> <span class='st'>"blue"</span>)$<span class='fu'>show_css</span>()</div><div class='output co'>#&gt; #myButton{
 #&gt; 	color:blue;
 #&gt; }</div><div class='input'>
+<span class='co'>## ------------------------------------------------</span>
+<span class='co'>## Method `Linne$import`</span>
+<span class='co'>## ------------------------------------------------</span>
+
+<span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>import</span>(<span class='st'>'https://fonts.googleapis.com/css2?family=Roboto'</span>)
+
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$include`</span>
 <span class='co'>## ------------------------------------------------</span>
@@ -391,7 +434,14 @@ build()</p>
 }
 
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></pre>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)
+
+
+<span class='co'>## ------------------------------------------------</span>
+<span class='co'>## Method `Linne$save`</span>
+<span class='co'>## ------------------------------------------------</span>
+
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), <span class='kw'>fontStyle</span> <span class='kw'>=</span> <span class='st'>"italic"</span>)$<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span>(<span class='st'>"styles.css"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">

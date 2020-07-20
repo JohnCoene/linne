@@ -11,7 +11,8 @@
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
-<script src="../pkgdown.js"></script><meta property="og:title" content="Get Started">
+<script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
+<meta property="og:title" content="Get Started">
 <meta property="og:description" content="linne">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
@@ -180,10 +181,10 @@
 <img src="get-started-linne.png" alt=""><p class="caption">Output with linne</p>
 </div>
 </div>
-<div id="print" class="section level2">
+<div id="show-css" class="section level2">
 <h2 class="hasAnchor">
-<a href="#print" class="anchor"></a>Print</h2>
-<p>In order to learn and understand more about CSS you use the <code>print_css</code> method to print the generated CSS.</p>
+<a href="#show-css" class="anchor"></a>Show CSS</h2>
+<p>In order to learn and understand more about CSS you use the <code>show_css</code> method to print the generated CSS to the console this passes invisibly so you can put it anywhere without breaking the pipe.</p>
 <div class="sourceCode" id="cb8"><html><body><pre class="r"><span class="no">Linne</span>$
   <span class="fu">new</span>()$
   <span class="fu">change</span>(
@@ -192,11 +193,23 @@
     <span class="kw">fontStyle</span> <span class="kw">=</span> <span class="st">"italic"</span>,
     <span class="kw">color</span> <span class="kw">=</span> <span class="st">"darkblue"</span>
   )$
-  <span class="fu">print_css</span>()
+  <span class="fu">show_css</span>()$
+  <span class="fu">change</span>(
+    <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"myId"</span>),
+    <span class="kw">background</span> <span class="kw">=</span> <span class="st">"red"</span>
+  )$
+  <span class="fu">show_css</span>()
 <span class="co">#&gt; p{</span>
 <span class="co">#&gt;  font-size:30px;</span>
 <span class="co">#&gt;  font-style:italic;</span>
 <span class="co">#&gt;  color:darkblue;</span>
+<span class="co">#&gt; }p{</span>
+<span class="co">#&gt;  font-size:30px;</span>
+<span class="co">#&gt;  font-style:italic;</span>
+<span class="co">#&gt;  color:darkblue;</span>
+<span class="co">#&gt; }</span>
+<span class="co">#&gt; #myId{</span>
+<span class="co">#&gt;  background:red;</span>
 <span class="co">#&gt; }</span></pre></body></html></div>
 </div>
   </div>
