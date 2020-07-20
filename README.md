@@ -1,14 +1,14 @@
-<div>
+<div style='text-align:center;'>
 
 <!-- badges: start -->
-[![R build status](https://github.com/JohnCoene/gaius/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/gaius/actions)
+[![R build status](https://github.com/JohnCoene/linne/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/linne/actions)
 <!-- badges: end -->
 
-# gaius
+# linne
 
 </div>
 
-Gaius aims to make CSS familiar to R users of  the R markdown and shiny packages.
+Linne aims to make CSS familiar to R users of  the R markdown and shiny packages.
 
 ## Installation
 
@@ -16,20 +16,20 @@ Install the Github version.
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("JohnCoene/gaius")
+remotes::install_github("JohnCoene/linne")
 ```
 
 ## Example
 
-{gaius} contains a single reference class which comes with just a few core methods. Always start with the `new` method to instantiate a new class.
+{linne} contains a single reference class which comes with just a few core methods. Always start with the `new` method to instantiate a new class.
 
 ```r
-library(gaius)
+library(linne)
 
-css <- Gaius$new()
+css <- Linne$new()
 ```
 
-There are two core methods to {gaius}:
+There are two core methods to {linne}:
 
 - `define` - Define a global variable
 - `change` - Change the CSS
@@ -40,12 +40,12 @@ Let's say you want to change the look and feel of this button in a shiny applica
 actionButton(inputId = "myButton", label = "Click me")
 ```
 
-Using {gaius} we can change some properties of the CSS with `change` method.
+Using {linne} we can change some properties of the CSS with `change` method.
 
 ```r
-library(gaius)
+library(linne)
 
-css <- Gaius$
+css <- Linne$
   new()$
   change(
     sel_id("myButton"), # inputId = "myButton"
@@ -55,10 +55,10 @@ css <- Gaius$
   )
 ```
 
-{gaius} will automatically convert integers and numerics to pixels, therefore the above changes the font size to 20 pixels.
+{linne} will automatically convert integers and numerics to pixels, therefore the above changes the font size to 20 pixels.
 
 ```r
-library(gaius)
+library(linne)
 library(shiny)
 
 ui <- fluidPage(

@@ -14,7 +14,7 @@ when_hover(selector)
 when_focus(selector)
 }
 \arguments{
-\item{selector}{as returned by \verb{sel_*} family of functions.}
+\item{selector}{as returned by \link{selectors}.}
 }
 \description{
 Narrows selection to a specific state, e.g.: when it is hovered.

@@ -10,12 +10,12 @@
 #' 
 #' @section Functions:
 #' 
-#' * [`sel_id()`] - Select an object by its id, e.g.: `sel_id('btn')` selects `shiny::actionButton('btn', 'Button')`.
-#' * [`sel_all()`] - Selects everything.
-#' * [`sel_input()`] - Selects an input by its id, e.g.: `sel_id('txt')` selects `shiny::textInput('txt', 'Text')`.
-#' * [`sel_class()`] - Select all elements bearing a specific class, e.g.: `sel_class('cls')`, selects `shiny::h1('hello', class = 'cls')`.
-#' * [`sel_tag()`] - Select all tags, e.g.: `sel_tag('p')` selects `p('hello')`.
-#' * [`sel_attr()`] - Select all tags with a specific attribute.
+#' * [sel_id()] - Select an object by its id, e.g.: `sel_id('btn')` selects `shiny::actionButton('btn', 'Button')`.
+#' * [sel_all()] - Selects everything.
+#' * [sel_input()] - Selects an input by its id, e.g.: `sel_id('txt')` selects `shiny::textInput('txt', 'Text')`.
+#' * [sel_class()] - Select all elements bearing a specific class, e.g.: `sel_class('cls')`, selects `shiny::h1('hello', class = 'cls')`.
+#' * [sel_tag()] - Select all tags, e.g.: `sel_tag('p')` selects `p('hello')`.
+#' * [sel_attr()] - Select all tags with a specific attribute.
 #' 
 #' @examples 
 #' # select element where id = x
@@ -24,8 +24,9 @@
 #' # select all elements with class = "container"
 #' sel_class("container")
 #' 
-#' @seealso [`%and%`], [`%or%`], and [`%child%`] for more
-#' sophisticated element selection.
+#' @seealso [`%and%`], [`%or%`], and [`%child%`] as well as
+#' [when_active()], [when_hover()], and [when_focus()]
+#' for more sophisticated element selection.
 #' 
 #' @name selectors
 #' @export

@@ -1,17 +1,17 @@
-#' Gaius
+#' Linne
 #' 
 #' @export 
-Gaius <- R6::R6Class(
-  "Gaius",
+Linne <- R6::R6Class(
+  "Linne",
   public = list(
 #' @details Define variables.
 #' 
 #' @param ... Named variables to define.
 #' 
-#' @return Self: the `Gaius` object.
+#' @return Self: the `Linne` object.
 #' 
 #' @examples
-#' Gaius$new()$define(baseColor = "blue")
+#' Linne$new()$define(baseColor = "blue")
     define = function(...){
 
       def <- define(...)
@@ -26,10 +26,10 @@ Gaius <- R6::R6Class(
 #' @param ... Declarations: properties and their values. This accepts
 #' camelcase, e.g.: `font-style` or `fontStyle`.
 #' 
-#' @return Self: the `Gaius` object.
+#' @return Self: the `Linne` object.
 #' 
 #' @examples
-#' Gaius$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
+#' Linne$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
     change = function(selector, ...){
 
       # enquo
@@ -51,7 +51,7 @@ Gaius <- R6::R6Class(
 #' Builds the CSS from definitions and changes.
 #' 
 #' @details 
-#' Gaius$
+#' Linne$
 #'  new()$
 #'  define(primary_color = 'red')$
 #'  change(
@@ -71,7 +71,7 @@ Gaius <- R6::R6Class(
 #' @details Prints Generated CSS
 #' 
 #' @examples
-#' Gaius$new()$change(sel_id("myButton"), color = "blue")$print_css()
+#' Linne$new()$change(sel_id("myButton"), color = "blue")$print_css()
     print_css = function(){
       if(is.null(private$.css))
         self$build()
@@ -86,7 +86,7 @@ Gaius <- R6::R6Class(
 #' 
 #' @examples 
 #' # generate CSS
-#' css <- Gaius$
+#' css <- Linne$
 #'   new()$
 #'   define(grey = '#c4c4c4')$
 #'   change(
@@ -131,14 +131,14 @@ Gaius <- R6::R6Class(
     },
 #' @details Print
 #' 
-#' Prints information on the Gaius object. 
+#' Prints information on the Linne object. 
     print = function(){
       defs <- length(private$.definitions)
       changes <- length(private$.changes)
       has_css <- !is.null(private$.css)
 
       # intro
-      cli::cli_h2("Gaius")
+      cli::cli_h2("Linne")
       cat("\n")
       cli::cat_bullet("Definition(s): ", defs)
       cli::cat_bullet("Change(s): ", changes)

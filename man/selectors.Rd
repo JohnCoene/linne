@@ -56,6 +56,7 @@ sel_class("container")
 
 }
 \seealso{
-\code{\link{\%and\%}}, \code{\link{\%or\%}}, and \code{\link{\%child\%}} for more
-sophisticated element selection.
+\code{\link{\%and\%}}, \code{\link{\%or\%}}, and \code{\link{\%child\%}} as well as
+\code{\link[=when_active]{when_active()}}, \code{\link[=when_hover]{when_hover()}}, and \code{\link[=when_focus]{when_focus()}}
+for more sophisticated element selection.
 }

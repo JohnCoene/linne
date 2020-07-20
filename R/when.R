@@ -2,7 +2,7 @@
 #' 
 #' Narrows selection to a specific state, e.g.: when it is hovered.
 #' 
-#' @param selector as returned by `sel_*` family of functions.
+#' @param selector as returned by [selectors].
 #' 
 #' @name when
 #' @export
