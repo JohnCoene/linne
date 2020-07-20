@@ -16,12 +16,24 @@
     <loc>http://linne.john-coene.com/reference/selectors.html</loc>
   </url>
   <url>
+    <loc>http://linne.john-coene.com/reference/useLinne.html</loc>
+  </url>
+  <url>
     <loc>http://linne.john-coene.com/reference/when.html</loc>
+  </url>
+  <url>
+    <loc>http://linne.john-coene.com/articles/advanced.html</loc>
   </url>
   <url>
     <loc>http://linne.john-coene.com/articles/get-started.html</loc>
   </url>
   <url>
+    <loc>http://linne.john-coene.com/articles/rmarkdown.html</loc>
+  </url>
+  <url>
     <loc>http://linne.john-coene.com/articles/selectors.html</loc>
+  </url>
+  <url>
+    <loc>http://linne.john-coene.com/articles/shiny.html</loc>
   </url>
 </urlset>

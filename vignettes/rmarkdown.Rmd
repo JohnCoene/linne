@@ -1,0 +1,38 @@
+---
+title: "R markdown"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{R markdown}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+The `include` method will not work in R markdown documents. Instead one should use, in a separate script, the `write` method to save the CSS file.
+
+```r
+Linne$
+  new()$
+  change(
+    sel_tag("p"),
+    color = "white",
+    fontSize = 30
+  )$
+  write("style.css") # save 
+```
+
+Then use that file in the front matter of the R markdown file, for instance.
+
+```yaml
+output:
+  revealjs::revealjs_presentation:
+    css: style.css
+```

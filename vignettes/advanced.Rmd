@@ -1,0 +1,61 @@
+---
+title: "Advanced"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Advanced}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+## Define
+
+You can use the `define` method to define global variables. This can make things clearer and more efficient.
+
+```{r}
+Linne$
+  new()$
+  define(
+    theme = "blue",
+    font_size = 20
+  )$
+  change(
+    sel_tag("h1"),
+    color = theme,
+    fontSize = font_size
+  )$
+  change(
+    sel_tag("p"),
+    color = theme
+  )
+```
+
+Note that these variables are referred to b their bare (unquoted) names in the `change` method.
+
+## Import
+
+There is a method called `import` which corresponds to the CSS at-rule of the same name. It allows importing other CSS files. It is often used for fonts.
+
+For instance to use [Google fonts](https://fonts.google.com/) visit the [website](https://fonts.google.com/), Click a font you would like to use from the main grid then (see print screen below) click "Select this style," this should open a drawer on the right from which you can copy the URL and CSS rule to use that font.
+
+![Google font](google-font.png)
+
+The Robot font (print screen above) can thus be applied like so.
+
+```{r}
+Linne$
+  new()$
+  import("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap")$
+  change(
+    sel_all(),
+    fontFamily = "'Roboto', sans-serif"
+  )
+```

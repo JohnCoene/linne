@@ -22,11 +22,16 @@ navbar:
           href: articles/get-started.html
         - text: Selectors
           href: articles/selectors.html
+        - text: Shiny
+          href: articles/shiny.html
+        - text: R markdown
+          href: articles/rmarkdown.html
+        - text: Advanced
+          href: articles/advanced.html
 
 reference:
   - title: "Linne"
-    desc: >
-      Reference class to create CSS
+    desc: Reference class to generate CSS
   - contents: 
     - Linne
   - title: "Selectors"
@@ -35,6 +40,10 @@ reference:
     - starts_with("sel")
     - starts_with("when")
     - starts_with("%")
+  - title: "Shiny"
+    desc: "Inject CSS from the shiny server"
+  - contents:
+    - useLinne
 
 authors:
   John Coene:

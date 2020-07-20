@@ -1,0 +1,115 @@
+---
+title: "Shiny"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Shiny}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+## Introduction
+
+## Include
+
+In shiny the easiest way to add the CSS to an application is to use the `include` method. Note however, that this is not advised in production, see the [`write`](#write) to improve performances.
+
+```r
+library(linne)
+library(shiny)
+
+linne <- Linne$
+  new()$
+  change(
+    sel_id("btn"),
+    color = "white",
+    backgroundColor = "red"
+  )
+
+ui <- fluidPage(
+  linne$include(), # incude CSS
+  actionButton("btn", "I'm a red button")
+)
+
+server <- function(input, output){}
+
+shinyApp(ui, server)
+```
+
+## Inject
+
+You can generate the CSS using `Line` as per usual then inject it dynamically in the page with the `inject` method. Note that for this you will need to place `useLinne` in UI of shiny page.
+
+```r
+library(linne)
+library(shiny)
+
+linne <- Linne$
+  new()$
+  change(
+    sel_id("change"),
+    color = "white",
+    backgroundColor = "black"
+  )
+
+ui <- fluidPage(
+  useLinne(), # only required for inject method
+  actionButton("change", "Change me!")
+)
+
+server <- function(input, output){
+
+  observeEvent(input$change, {
+    linne$inject()
+  })
+
+}
+
+shinyApp(ui, server)
+```
+
+![Inject CSS](linne-inject.gif)
+
+## Write
+
+The `include` method will (by default) build the CSS every time it is called making it inefficient for prod. When deploying an app it is always better to save the generated CSS to a file then link that file in the shiny application. 
+
+```r
+dir.create("www") # create static asset directory
+
+Linne$
+  new()$
+  change(
+    sel_tag("p"),
+    color = "white",
+    fontSize = 30
+  )$
+  write("www/style.css") # save 
+```
+
+Then use the `link` tag to link to the CSS file.
+
+```r
+library(linne)
+library(shiny)
+
+ui <- fluidPage(
+  tags$head(
+    tags$link(rel = "stylesheet", href = "www/style.css")
+  ),
+  p("This is rather large text"),
+  p("This too!")
+)
+
+server <- function(input, output){}
+
+shinyApp(ui, server)
+```

@@ -97,7 +97,7 @@ Linne <- R6::R6Class(
     },
 #' @details Import
 #' 
-#' Import from a url or path, generally a font.
+#' Import from a url or path.
 #' 
 #' @param url URL to import.
 #' 
@@ -149,6 +149,8 @@ Linne <- R6::R6Class(
 #' @return [htmltools::tags]
     include = function(build = TRUE){
       if(build) self$build()
+
+      cli::cli_alert_warning("Using `include` in prod is not advised, see `write` method")
       
       min <- private$.minified()
 
@@ -239,7 +241,7 @@ Linne <- R6::R6Class(
     inject = function(build = TRUE, session = shiny::getDefaultReactiveDomain()){
       
       if(interactive())
-        cli::cli_alert_warning("Remember to place `useLynn` in your shiny UI.")
+        cli::cli_alert_warning("Remember to place `useLinne` in your shiny UI when using `inject`.")
 
       if(build ) self$build()
 
