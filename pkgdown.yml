@@ -2,9 +2,12 @@ pandoc: 2.7.3
 pkgdown: 1.5.1
 pkgdown_sha: ~
 articles:
+  advanced: advanced.html
   get-started: get-started.html
+  rmarkdown: rmarkdown.html
   selectors: selectors.html
-last_built: 2020-07-20T11:24Z
+  shiny: shiny.html
+last_built: 2020-07-20T16:36Z
 urls:
   reference: http://linne.john-coene.com/reference
   article: http://linne.john-coene.com/articles

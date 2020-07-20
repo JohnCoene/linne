@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Infixes — pipes • linne</title>
+<title>Dependency — useLinne • linne</title>
 
 
 <!-- jquery -->
@@ -41,8 +41,9 @@
   <link href="../extra.css" rel="stylesheet">
   
 
-<meta property="og:title" content="Infixes — pipes" />
-<meta property="og:description" content="Convenient pipes for more sophisticated selectors." />
+<meta property="og:title" content="Dependency — useLinne" />
+<meta property="og:description" content="Imports dependencies necessary for the inject method to work.
+Pace this function in your shiny UI." />
 
 
 
@@ -151,52 +152,20 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Infixes</h1>
+    <h1>Dependency</h1>
     
-    <div class="hidden name"><code>pipes.Rd</code></div>
+    <div class="hidden name"><code>useLinne.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Convenient pipes for more sophisticated selectors.</p>
+    <p>Imports dependencies necessary for the <code>inject</code> method to work.
+Pace this function in your shiny UI.</p>
     </div>
 
-    <pre class="usage"><span class='no'>lhs</span> <span class='kw'>%child%</span> <span class='no'>rhs</span>
-
-<span class='no'>lhs</span> <span class='kw'>%or%</span> <span class='no'>rhs</span>
-
-<span class='no'>lhs</span> <span class='kw'>%with%</span> <span class='no'>rhs</span></pre>
-
-    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
-    <table class="ref-arguments">
-    <colgroup><col class="name" /><col class="desc" /></colgroup>
-    <tr>
-      <th>lhs, rhs</th>
-      <td><p>Selectors as returned by <code>sel_*</code> family of functions.</p></td>
-    </tr>
-    </table>
-
-    <h2 class="hasAnchor" id="operators"><a class="anchor" href="#operators"></a>Operators</h2>
-
-    
-
-<ul>
-<li><p><code>%child%</code> - Selects elements where right hand is child of left hand, e.g.: <code>sel_tag('div') %child% sel_class('aClass')</code> selects elements with <code>aClass</code> who are direct children of <code>div</code> tags.</p></li>
-<li><p><code>%or%</code> - Select left hand or right hand, e.g.: <code>sel_id('myId') %or% sel_class('myClass')</code> will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.</p></li>
-<li><p><code>%with%</code> - Left hand selector with right hand selector, e.g.: <code>sel_tag('div') %with% sel_class('aClass')</code> selects a <code>div</code> with a class of <code>aClass</code>. Ideal to narrow down the selection.</p></li>
-</ul>
+    <pre class="usage"><span class='fu'>useLinne</span>()</pre>
 
 
-    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='co'># select all paragraph 'p' with "red" class</span>
-<span class='fu'><a href='selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>) <span class='kw'>%with%</span> <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: p.red</span></div><div class='input'>
-<span class='co'># the other way around works equally well</span>
-<span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>) <span class='kw'>%with%</span> <span class='fu'><a href='selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: .redp</span></div><div class='input'>
-<span class='co'># select multiple elements</span>
-<span class='co'># where id = "x" or class = "center" </span>
-<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"x"</span>) <span class='kw'>%or%</span> <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"center"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #x,.center</span></div><div class='input'>
-<span class='co'># select element with id = "x" and parent's id = "y"</span>
-<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>) <span class='kw'>%child%</span> <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #y #y</span></div><div class='input'>
-</div></span></pre>
+
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
