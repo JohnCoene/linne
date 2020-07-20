@@ -16,6 +16,11 @@ Linne <- R6::R6Class(
 
       # capture
       def <- define(...)
+
+      # check
+      private$.check_definitions(new_def = def)
+
+      # process
       definition <- process_definitions(def)
 
       # store
@@ -145,7 +150,7 @@ Linne <- R6::R6Class(
     include = function(build = TRUE){
       if(build) self$build()
       
-      min <- private$minified()
+      min <- private$.minified()
 
       htmltools::singleton(
         htmltools::tags$head(
@@ -162,16 +167,18 @@ Linne <- R6::R6Class(
 #' @param pretty Whether to keep tabs and newlines.
 #' 
 #' @examples
-#' \dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
-    save = function(path = "style.css", pretty = FALSE, build = TRUE){
+#' \dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+    write = function(path = "style.css", pretty = FALSE, build = TRUE){
       if(build) self$build()
 
       if(!pretty)
-        min <- private$minified()
+        css <- private$.minified()
+      else 
+        css <- private$.css
       
       path <- file_name(path)
 
-      writeLines(min, con = path)
+      writeLines(css, con = path)
 
     },
 #' @details Print
@@ -201,8 +208,17 @@ Linne <- R6::R6Class(
     .imports = c(),
     .changes = list(),
     .definitions = list(),
-    minified = function(){
-      gsub("\\n|\\t|\\s", "", private$.css)
+    .minified = function(){
+      gsub("\\n|\\t", "", private$.css)
+    },
+    .check_definitions = function(new_def){
+      duplicates <- names(new_def) %in% names(private$.definitions)
+
+      if(!any(duplicates))
+        return()
+
+      msg_stop <- paste0("'", names(new_def)[duplicates], "' already defined", collapse = "', '")  
+      stop(msg_stop, call. = FALSE)
     },
     .build = function(){
       # process changes

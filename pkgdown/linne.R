@@ -23,4 +23,4 @@ Linne$
     color = dark
   )$
   show_css()$
-  save("pkgdown/extra.css")
+  write("pkgdown/extra.css", pretty = TRUE)

@@ -80,10 +80,10 @@ if(interactive())
 
 
 ## ------------------------------------------------
-## Method `Linne$save`
+## Method `Linne$write`
 ## ------------------------------------------------
 
-\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -94,7 +94,7 @@ if(interactive())
 \item \href{#method-show_css}{\code{Linne$show_css()}}
 \item \href{#method-import}{\code{Linne$import()}}
 \item \href{#method-include}{\code{Linne$include()}}
-\item \href{#method-save}{\code{Linne$save()}}
+\item \href{#method-write}{\code{Linne$write()}}
 \item \href{#method-print}{\code{Linne$print()}}
 \item \href{#method-clone}{\code{Linne$clone()}}
 }
@@ -316,11 +316,11 @@ if(interactive())
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-save"></a>}}
-\if{latex}{\out{\hypertarget{method-save}{}}}
-\subsection{Method \code{save()}}{
+\if{html}{\out{<a id="method-write"></a>}}
+\if{latex}{\out{\hypertarget{method-write}{}}}
+\subsection{Method \code{write()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Linne$save(path = "style.css", pretty = FALSE, build = TRUE)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Linne$write(path = "style.css", pretty = FALSE, build = TRUE)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -342,7 +342,7 @@ Write the CSS to file.
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+\preformatted{\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 }
 \if{html}{\out{</div>}}
 
