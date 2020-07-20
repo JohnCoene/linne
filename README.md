@@ -1,6 +1,6 @@
 <div style='text-align:center;'>
 
-<img src="man/figures/logo.png" style="max-height:250px;" />
+<img src="man/figures/logo.png" style="height:250px;" align="center" />
 
 <!-- badges: start -->
 [![R build status](https://github.com/JohnCoene/linne/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/linne/actions)
