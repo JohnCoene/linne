@@ -8,7 +8,7 @@
 
 </div>
 
-Linne aims to make CSS familiar to R users of  the R markdown and shiny packages.
+Linne makes basic CSS easier for R users.
 
 ## Installation
 
@@ -26,7 +26,7 @@ remotes::install_github("JohnCoene/linne")
 ```r
 library(linne)
 
-css <- Linne$new()
+linne <- Linne$new()
 ```
 
 There are two core methods to {linne}:
@@ -45,10 +45,10 @@ Using {linne} we can change some properties of the CSS with `change` method.
 ```r
 library(linne)
 
-css <- Linne$
+linne <- Linne$
   new()$
   change(
-    sel_id("myButton"), # inputId = "myButton"
+    sel_input("myButton"), # inputId = "myButton"
     backgroundColor = 'red', 
     fontSize = 20,
     color = "white"
@@ -62,7 +62,7 @@ library(linne)
 library(shiny)
 
 ui <- fluidPage(
-  css$include(), # include the CSS
+  linne$include(), # include the CSS
   actionButton(inputId = "myButton", label = "Click me")
 )
 

@@ -52,11 +52,6 @@ parse_changes <- function(chg, def){
   paste0(unlist(chg), collapse = "\n")
 }
 
-# remove unecessary tabs and new line
-minify <- function(x){
-  gsub("\\n|\\t|\\s", "", x)
-}
-
 # assertthat of the poor
 # check that argument is not missing
 not_missing <- function(x){
@@ -64,4 +59,12 @@ not_missing <- function(x){
     stop("Missing arguments", call. = FALSE)
   } 
   invisible()
+}
+
+# ensure file extension is correct
+file_name <- function(path){
+  ext <- tools::file_ext(path)
+  ext_patt <- sprintf("\\.%s$", ext)
+
+  gsub(ext_patt, ".css", path)
 }

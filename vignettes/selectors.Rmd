@@ -1,0 +1,70 @@
+---
+title: "Selectors"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Selectors}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+## Introduction
+
+The [Get Started](get-started.html) guide present basic selectors which are plenty enough in most cases. However, linne comes with some more sophisticated ones if needed.
+
+## Basics
+
+Below are the basic selectors available in linne.
+
+* `sel_id()` - Select an object by its id, e.g.: `sel_id('btn')` selects `shiny::actionButton('btn', 'Button')`.
+* `sel_all()` - Selects everything, will apply a change to every element of the page.
+* `sel_input()` - Selects an input by its id, e.g.: `sel_id('txt')` selects `shiny::textInput('txt', 'Text')`.
+* `sel_class()` - Select all elements bearing a specific class, e.g.: `sel_class('cls')`, selects `shiny::h1('hello', class = 'cls')`.
+* `sel_tag()` - Select all tags, e.g.: `sel_tag('p')` selects `p('hello')`.
+* `sel_attr()` - Select all tags with a specific attribute.
+
+__Examples__
+
+```{r}
+sel_id("btn")
+sel_class("aClass")
+```
+
+## Operators
+
+You can also use some special operators to broaden or narrow down the selection.
+
+* `%child%` - Selects elements where right hand is child of left hand, e.g.: `sel_tag('div') %child% sel_class('aClass')` selects elements with `aClass` who are direct children of `div` tags.
+* `%or%` - Select left hand or right hand, e.g.: `sel_id('myId') %or% sel_class('myClass')` will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.
+* `%with%` - Left hand selector with right hand selector, e.g.: `sel_tag('div') %with% sel_class('aClass')` selects a `div` with a class of `aClass`. Ideal to narrow down the selection.
+
+__Examples__
+
+```{r}
+sel_id('myId') %or% sel_class('myClass')
+sel_tag('div') %with% sel_class('aClass')
+```
+
+## When
+
+You can also use the `when_*` family of functions to narrow the selection based on the state of the element.
+
+* `when_active()` - Only select only active links.
+* `when_hover` - Only select when the element is hovered.
+* `when_focus` - Only select when the elements is focused.
+
+__Examples__
+
+```{r}
+sel_tag("a") # select all a tag
+sel_tag("a") %>% when_active() # selects a tags that are active
+sel_id("myId") %>% when_hover()
+```

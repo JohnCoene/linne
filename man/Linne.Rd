@@ -8,6 +8,15 @@ Linne
 
 Linne
 }
+\section{Attributes}{
+
+There are hundreds of attributes to pass to the three-dotconstruct (\code{...}),
+a comprehensive list of them can be found on
+\href{https://www.w3schools.com/cssref/}{w3schools}.
+
+Linne accepts camelcase for convenience, e.g.: \code{font-size} or \code{fontSize}.
+}
+
 \examples{
 
 ## ------------------------------------------------
@@ -72,6 +81,7 @@ if(interactive())
 \item \href{#method-build}{\code{Linne$build()}}
 \item \href{#method-print_css}{\code{Linne$print_css()}}
 \item \href{#method-include}{\code{Linne$include()}}
+\item \href{#method-save}{\code{Linne$save()}}
 \item \href{#method-print}{\code{Linne$print()}}
 \item \href{#method-clone}{\code{Linne$clone()}}
 }
@@ -245,6 +255,30 @@ if(interactive())
 }
 \if{html}{\out{</div>}}
 
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-save"></a>}}
+\if{latex}{\out{\hypertarget{method-save}{}}}
+\subsection{Method \code{save()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Linne$save(path = "style.css", pretty = FALSE)}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{path}}{Path to file.}
+
+\item{\code{pretty}}{Whether to keep tabs and newlines.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Save
+
+Write the CSS to file.
 }
 
 }

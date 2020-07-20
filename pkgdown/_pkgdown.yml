@@ -1,0 +1,41 @@
+url: http://linne.john-coene.com
+
+template:
+  params:
+    bootswatch: paper
+    ganalytics: UA-74544116-1
+
+navbar:
+  title: "linne"
+  left:
+    - icon: fa-home
+      href: index.html
+    - icon: fa-balance-scale
+      href: LICENSE.html
+    - icon: fa-newspaper-o
+      href: news/index.html
+    - text: "Reference"
+      href: "reference/"
+    - text: "Guides"
+      menu: 
+        - text: "Get Started"
+          href: articles/get-started.html
+        - text: Selectors
+          href: articles/selectors.html
+
+reference:
+  - title: "Linne"
+    desc: >
+      Reference class to create CSS
+  - contents: 
+    - Linne
+  - title: "Selectors"
+    desc: "Convenience functions to select elements from the page"
+  - contents:
+    - starts_with("sel")
+    - starts_with("when")
+    - starts_with("%")
+
+authors:
+  John Coene:
+    href: http://john-coene.com

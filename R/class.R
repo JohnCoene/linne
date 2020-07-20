@@ -14,9 +14,11 @@ Linne <- R6::R6Class(
 #' Linne$new()$define(baseColor = "blue")
     define = function(...){
 
+      # capture
       def <- define(...)
       definition <- process_definitions(def)
 
+      # store
       private$.definitions <- append(private$.definitions, definition)
       invisible(self)
     },
@@ -24,7 +26,14 @@ Linne <- R6::R6Class(
 #' 
 #' @param selector An object of class `selector` as returned by the `sel_*` family of functions.
 #' @param ... Declarations: properties and their values. This accepts
-#' camelcase, e.g.: `font-style` or `fontStyle`.
+#' camelcase, e.g.: `font-style` or `fontStyle`. 
+#' 
+#' @section Attributes:
+#' There are hundreds of attributes to pass to the three-dotconstruct (`...`), 
+#' a comprehensive list of them can be found on 
+#' [w3schools](https://www.w3schools.com/cssref/).
+#' 
+#' Linne accepts camelcase for convenience, e.g.: `font-size` or `fontSize`.
 #' 
 #' @return Self: the `Linne` object.
 #' 
@@ -73,8 +82,7 @@ Linne <- R6::R6Class(
 #' @examples
 #' Linne$new()$change(sel_id("myButton"), color = "blue")$print_css()
     print_css = function(){
-      if(is.null(private$.css))
-        self$build()
+      if(is.null(private$.css)) self$build()
 
       cat(private$.css)
       
@@ -118,16 +126,32 @@ Linne <- R6::R6Class(
 #' 
 #' @return [htmltools::tags]
     include = function(){
-      if(is.null(private$.css))
-        self$build()
+      if(is.null(private$.css)) self$build()
       
-      min <- minify(private$.css)
+      min <- private$minified()
 
       htmltools::singleton(
         htmltools::tags$head(
           htmltools::tags$style(min)
         )
       )
+    },
+#' @details Save
+#' 
+#' Write the CSS to file.
+#' 
+#' @param path Path to file.
+#' @param pretty Whether to keep tabs and newlines.
+    save = function(path = "style.css", pretty = FALSE){
+      if(is.null(private$.css)) self$build()
+
+      if(!pretty)
+        min <- private$minified()
+      
+      path <- file_name(path)
+
+      writeLines(min, con = path)
+
     },
 #' @details Print
 #' 
@@ -154,7 +178,13 @@ Linne <- R6::R6Class(
   private = list(
     .css = NULL,
     .changes = list(),
-    .definitions = list()
+    .definitions = list(),
+    minified = function(){
+      gsub("\\n|\\t|\\s", "", private$.css)
+    },
+    check_definitions = function(def){
+
+    }
   )
 )
 

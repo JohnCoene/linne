@@ -4,14 +4,14 @@
 \alias{pipes}
 \alias{\%child\%}
 \alias{\%or\%}
-\alias{\%and\%}
+\alias{\%with\%}
 \title{Infixes}
 \usage{
 lhs \%child\% rhs
 
 lhs \%or\% rhs
 
-lhs \%and\% rhs
+lhs \%with\% rhs
 }
 \arguments{
 \item{lhs, rhs}{Selectors as returned by \verb{sel_*} family of functions.}
@@ -22,18 +22,18 @@ Convenient pipes for more sophisticated selectors.
 \section{Operators}{
 
 \itemize{
-\item \code{\link{\%child\%}} - Adds left hand as child of right hand.
-\item \code{\link{\%or\%}} - Select left hand or right hand, ideal to select multiple elements at once.
-\item \code{\link{\%and\%}} - Select left hand and right hand, ideal to narrow down the selection.
+\item \code{\link{\%child\%}} - Selects elements where right hand is child of left hand, e.g.: \code{sel_tag('div') \%child\% sel_class('aClass')} selects elements with \code{aClass} who are direct children of \code{div} tags.
+\item \code{\link{\%or\%}} - Select left hand or right hand, e.g.: \code{sel_id('myId') \%or\% sel_class('myClass')} will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.
+\item \code{\link{\%with\%}} - Left hand selector with right hand selector, e.g.: \code{sel_tag('div') \%with\% sel_class('aClass')} selects a \code{div} with a class of \code{aClass}. Ideal to narrow down the selection.
 }
 }
 
 \examples{
-# select all paragraph 'p' where class = "red"
-sel_tag("p") \%and\% sel_class("red")
+# select all paragraph 'p' with "red" class
+sel_tag("p") \%with\% sel_class("red")
 
 # the other way around works equally well
-sel_class("red") \%and\% sel_tag("p")
+sel_class("red") \%with\% sel_tag("p")
 
 # select multiple elements
 # where id = "x" or class = "center" 

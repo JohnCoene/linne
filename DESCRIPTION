@@ -19,5 +19,8 @@ Imports:
     cli,
     magrittr
 Suggests:
-  shiny,
-  htmltools
+    shiny,
+    htmltools,
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr

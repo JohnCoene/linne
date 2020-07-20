@@ -24,7 +24,7 @@
 #' # select all elements with class = "container"
 #' sel_class("container")
 #' 
-#' @seealso [`%and%`], [`%or%`], and [`%child%`] as well as
+#' @seealso [`%with%`], [`%or%`], and [`%child%`] as well as
 #' [when_active()], [when_hover()], and [when_focus()]
 #' for more sophisticated element selection.
 #' 

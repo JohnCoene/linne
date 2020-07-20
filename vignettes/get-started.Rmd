@@ -1,0 +1,129 @@
+---
+title: "Get Started"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Get Started}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+## Introduction
+
+There are two core verbs to linne: select and change. First you select an element (e.g.: a button) then apply changes (e.g.: change the color).
+
+At its core the package consists of a family of selectors and a reference class around which much revolves. This reference class is instantiate from the `Linne` object with the `new` method.
+
+```r
+linne <- Linne$new()
+```
+
+Almost every method results the linne object itself so it can be piped around.
+
+## Select
+
+A core concept is that of selecting elements (to subsequently change their style). This is done mainly via the `sel_*` family of functions.
+
+```{r}
+shiny::p("Hello Linne", id = "myId")
+```
+
+For instance, were one want to change the style of the element above, one could select it using its `id` with:
+
+```{r}
+sel_id("myId")
+```
+
+Note that this prints the console the actual CSS selector it generates. There are many such `sel_*` functions, one could also select all `p()` to change them all at once.
+
+```{r}
+sel_tag("p")
+```
+
+The selectors are not useful on their own, they are meant to be used together with the `change` method where they indicate the element(s) one wants to change.
+
+## Change
+
+With elements selected one can change their style attributes. There way too many such attributes to list, you will find a comprehensive list on [w3schools](https://www.w3schools.com/cssref/).
+
+```r
+linne <- Linne$
+  new()$
+  change(
+    sel_id("myId"),
+    fontSize = 20,
+    color = "blue"
+  )
+```
+
+Two things to note on the above, linne automatically converts integers and numerics into pixels: the above changes the size of the font of the element with `id = "myId"` to 20 pixels. Second, linne accepts camelCase, where the original CSS attribute is `font-size` above we use `fontSize`. Note that you may pass the original CSS attributes in backticks.
+
+## Define
+
+You can also `define` variables to use them in subsequent `change` methods. Note that those variables are passed bare (unquoted) in the `change` method.
+
+```r
+linne <- Linne$
+  new()$
+  define(primary_color = "blue")$
+  change(
+    sel_id("myId"),
+    fontSize = 20,
+    FontStyle = primary_color
+  )
+```
+
+This is useful to organise code and avoid having to repeatedly specify the same value, it also makes it much easier to change those values later: change it once only.
+
+## Include
+
+Thus far we have customised CSS but we are yet to include it into a shiny application.
+
+```r
+library(shiny)
+library(linne)
+
+linne <- Linne$
+  new()$
+  change(
+    sel_tag("p"),
+    fontSize = 30,
+    fontStyle = "italic",
+    color = "darkblue"
+  )
+
+ui <- fluidPage(
+  linne$include(),
+  p("Hello {linne}!")
+)
+
+server <- function(input, output) {}
+
+shinyApp(ui, server)
+```
+
+![Output with linne](get-started-linne.png)
+
+## Print
+
+In order to learn and understand more about CSS you use the `print_css` method to print the generated CSS.
+
+```{r}
+Linne$
+  new()$
+  change(
+    sel_tag("p"),
+    fontSize = 30,
+    fontStyle = "italic",
+    color = "darkblue"
+  )$
+  print_css()
+```

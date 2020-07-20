@@ -1,3 +1,7 @@
 ^test\.R$
 ^LICENSE\.md$
 ^\.github$
+^_pkgdown\.yml$
+^docs$
+^pkgdown$
+^index\.md$

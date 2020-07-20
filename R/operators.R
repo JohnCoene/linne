@@ -6,16 +6,16 @@
 #' 
 #' @section Operators:
 #' 
-#' * [`%child%`] - Adds left hand as child of right hand.
-#' * [`%or%`] - Select left hand or right hand, ideal to select multiple elements at once.
-#' * [`%and%`] - Select left hand and right hand, ideal to narrow down the selection.
+#' * [`%child%`] - Selects elements where right hand is child of left hand, e.g.: `sel_tag('div') %child% sel_class('aClass')` selects elements with `aClass` who are direct children of `div` tags.
+#' * [`%or%`] - Select left hand or right hand, e.g.: `sel_id('myId') %or% sel_class('myClass')` will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.
+#' * [`%with%`] - Left hand selector with right hand selector, e.g.: `sel_tag('div') %with% sel_class('aClass')` selects a `div` with a class of `aClass`. Ideal to narrow down the selection.
 #' 
 #' @examples
-#' # select all paragraph 'p' where class = "red"
-#' sel_tag("p") %and% sel_class("red")
+#' # select all paragraph 'p' with "red" class
+#' sel_tag("p") %with% sel_class("red")
 #' 
 #' # the other way around works equally well
-#' sel_class("red") %and% sel_tag("p")
+#' sel_class("red") %with% sel_tag("p")
 #' 
 #' # select multiple elements
 #' # where id = "x" or class = "center" 
@@ -38,6 +38,6 @@
 
 #' @name pipes
 #' @export
-`%and%` <- function(lhs, rhs){
+`%with%` <- function(lhs, rhs){
   construct_selector("%s%s", lhs, rhs)
 }
