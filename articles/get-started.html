@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Get Started • linne</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/paper/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/readable/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="../bootstrap-toc.css">
 <script src="../bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -211,6 +211,37 @@
 <span class="co">#&gt; #myId{</span>
 <span class="co">#&gt;  background:red;</span>
 <span class="co">#&gt; }</span></pre></body></html></div>
+</div>
+<div id="examples" class="section level2">
+<h2 class="hasAnchor">
+<a href="#examples" class="anchor"></a>Examples</h2>
+<p>Below using child to only apply changes to the <code>h2</code> tag within the <code>container</code>.</p>
+<div class="sourceCode" id="cb9"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">linne</span>)
+
+<span class="co"># change color fo h2 inside container.</span>
+<span class="no">linne</span> <span class="kw">&lt;-</span> <span class="no">Linne</span>$
+  <span class="fu">new</span>()$
+  <span class="fu">change</span>(
+    <span class="fu"><a href="../reference/selectors.html">sel_class</a></span>(<span class="st">"container"</span>) <span class="kw">%child%</span> <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"h2"</span>),
+    <span class="kw">color</span> <span class="kw">=</span> <span class="st">"#2a9d8f"</span>
+  )
+
+<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
+  <span class="no">linne</span>$<span class="fu">include</span>(), <span class="co"># include CSS</span>
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">h2</a></span>(<span class="st">"Linne in action!"</span>),
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">div</a></span>(
+    <span class="kw">class</span> <span class="kw">=</span> <span class="st">"container"</span>,
+    <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">h2</a></span>(<span class="st">"This is a different color"</span>)
+  )
+)
+
+<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>){}
+
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<div class="figure">
+<img src="child.png" alt=""><p class="caption">Select child</p>
+</div>
 </div>
   </div>
 
