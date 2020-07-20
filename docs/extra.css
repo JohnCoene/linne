@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@400;700&family=Ubuntu+Mono&display=swap');
+*{
+	font-family:'Dosis', sans-serif;
+}
+code,pre{
+	font-family:'Ubuntu Mono', monospace;
+}
+h1{
+	color:#264653!important;
+}
+[data-toggle='toc'] a{
+	color:#e76f51!important;
+}
+h2,h3,h4{
+	color:#e76f51!important;
+}
+#pkgdown-sidebar h2{
+	color:#264653!important;
+}
+.navbar-default{
+	background-color:#264653!important;
+	color:white;
+}
+.navbar-nav li a{
+	color:white !important;
+}
+a{
+	color:#e76f51!important;
+}
+.btn-copy-ex{
+	background-color:#264653!important;
+	color:#e76f51!important;
+	border-color:#264653!important;
+}
+.dropdown-menu li a{
+	color:white;
+	background-color:#264653!important;
+}
