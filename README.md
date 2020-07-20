@@ -2,11 +2,11 @@
 
 <img src="man/figures/logo.png" height="250px" />
 
+[website](https://linne.john-coene.com/) | [Get Started](https://linne.john-coene.com/articles/get-started.html)
+
 <!-- badges: start -->
 [![R build status](https://github.com/JohnCoene/linne/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/linne/actions)
 <!-- badges: end -->
-
-# linne
 
 </div>
 
