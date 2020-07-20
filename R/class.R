@@ -15,7 +15,7 @@ Linne <- R6::R6Class(
     define = function(...){
 
       # capture
-      def <- define(...)
+      def <- capture(...)
 
       # check
       private$.check_definitions(new_def = def)
@@ -52,7 +52,7 @@ Linne <- R6::R6Class(
 
       change <- list(
         selector = selector,
-        change = define(...)
+        change = capture(...)
       )
 
       private$.changes <- append(private$.changes, list(change))

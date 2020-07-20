@@ -55,6 +55,13 @@ reference:
     - starts_with("sel")
     - starts_with("when")
     - starts_with("%")
+  - title: "Convenience"
+    desc: Convenience functions for routine operations.
+  - contents:
+      - important_
+      - url_
+      - rgb_
+      - rgba_
   - title: "Shiny"
     desc: "Inject CSS from the shiny server"
   - contents:

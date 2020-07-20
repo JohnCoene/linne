@@ -114,7 +114,6 @@ server <- function(input, output){
 
 if(interactive())
  shinyApp(ui, server)
-
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -470,7 +469,6 @@ server <- function(input, output){
 
 if(interactive())
  shinyApp(ui, server)
-
 }
 \if{html}{\out{</div>}}
 

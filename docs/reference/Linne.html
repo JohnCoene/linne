@@ -515,7 +515,7 @@ build()</p>
   <span class='no'>css</span>$<span class='fu'>include</span>(),
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>h1</a></span>(<span class='st'>"Some text"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>),
   <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>actionButton</a></span>(<span class='st'>"myButton"</span>, <span class='st'>"Am I red?"</span>, <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"aClass"</span>)
-)</div><div class='output co'>#&gt; <span class='message'><span style='color: #BBBB00;'>!</span><span> Using `include` in prod is not advised, see `write` method</span></div><div class='input'>
+)</div><div class='output co'>#&gt; <span class='error'>Error in as.character(function (level, alpha) .Call(C_gray, level, if (missing(alpha)) NULL else alpha)): cannot coerce type 'closure' to vector of type 'character'</span></div><div class='input'>
 <span class='no'>server</span> <span class='kw'>&lt;-</span> <span class='kw'>function</span>(<span class='no'>input</span>, <span class='no'>output</span>){
   <span class='no'>output</span>$<span class='no'>myPlot</span> <span class='kw'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/renderPlot.html'>renderPlot</a></span>(<span class='fu'><a href='https://rdrr.io/r/base/plot.html'>plot</a></span>(<span class='no'>cars</span>))
 }
@@ -558,7 +558,7 @@ build()</p>
 }
 
 <span class='kw'>if</span>(<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>())
- <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></span></pre>
+ <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
