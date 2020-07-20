@@ -1,0 +1,11 @@
+pandoc: 2.7.3
+pkgdown: 1.5.1
+pkgdown_sha: ~
+articles:
+  get-started: get-started.html
+  selectors: selectors.html
+last_built: 2020-07-20T08:26Z
+urls:
+  reference: http://linne.john-coene.com/reference
+  article: http://linne.john-coene.com/articles
+
