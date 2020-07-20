@@ -175,7 +175,7 @@ a comprehensive list of them can be found on
 <li><p><a href='#method-show_css'><code>Linne$show_css()</code></a></p></li>
 <li><p><a href='#method-import'><code>Linne$import()</code></a></p></li>
 <li><p><a href='#method-include'><code>Linne$include()</code></a></p></li>
-<li><p><a href='#method-save'><code>Linne$save()</code></a></p></li>
+<li><p><a href='#method-write'><code>Linne$write()</code></a></p></li>
 <li><p><a href='#method-print'><code>Linne$print()</code></a></p></li>
 <li><p><a href='#method-clone'><code>Linne$clone()</code></a></p></li>
 </ul>
@@ -329,10 +329,10 @@ build()</p>
  <span class='fu'><a href='https://rdrr.io/pkg/shiny/man/shinyApp.html'>shinyApp</a></span>(<span class='no'>ui</span>, <span class='no'>server</span>)</pre><p></div></p>
 
 <p><hr>
-<a id="method-save"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/save.html'>save()</a></code></h3>
+<a id="method-write"></a></p><h3>Method <code><a href='https://rdrr.io/r/base/write.html'>write()</a></code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"style.css"</span>, <span class='kw'>pretty</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='no'>Linne</span>$<span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='kw'>path</span> <span class='kw'>=</span> <span class='st'>"style.css"</span>, <span class='kw'>pretty</span> <span class='kw'>=</span> <span class='fl'>FALSE</span>, <span class='kw'>build</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl'>
@@ -348,7 +348,7 @@ build()</p>
 <p>Write the CSS to file.</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre>\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$save("styles.css")}
+<p><div class="r example copy"></p><pre>\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 </pre><p></div></p>
 
 <p><hr>
@@ -438,10 +438,10 @@ build()</p>
 
 
 <span class='co'>## ------------------------------------------------</span>
-<span class='co'>## Method `Linne$save`</span>
+<span class='co'>## Method `Linne$write`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), <span class='kw'>fontStyle</span> <span class='kw'>=</span> <span class='st'>"italic"</span>)$<span class='fu'><a href='https://rdrr.io/r/base/save.html'>save</a></span>(<span class='st'>"styles.css"</span>)</div></pre>
+<span class='kw'>if</span> (<span class='fl'>FALSE</span>) <span class='no'>Linne</span>$<span class='fu'>new</span>()$<span class='fu'>change</span>(<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), <span class='kw'>fontStyle</span> <span class='kw'>=</span> <span class='st'>"italic"</span>)$<span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='st'>"styles.css"</span>)</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
