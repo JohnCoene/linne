@@ -8,6 +8,13 @@
 
 <title>Infixes — pipes • linne</title>
 
+<!-- favicons -->
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png" />
 
 <!-- jquery -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -43,6 +50,11 @@
 
 <meta property="og:title" content="Infixes — pipes" />
 <meta property="og:description" content="Convenient pipes for more sophisticated selectors." />
+<meta property="og:image" content="http://linne.john-coene.com/reference/figures/linne_social.png" />
+<meta property="og:image:alt" content="CSS in R" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:creator" content="@jdatap" />
+<meta name="twitter:site" content="@jdatap" />
 
 
 
@@ -160,11 +172,11 @@
     <p>Convenient pipes for more sophisticated selectors.</p>
     </div>
 
-    <pre class="usage"><span class='kw'>lhs</span> <span class='op'>%child%</span> <span class='kw'>rhs</span>
+    <pre class="usage"><span class='no'>lhs</span> <span class='kw'>%child%</span> <span class='no'>rhs</span>
 
-<span class='kw'>lhs</span> <span class='op'>%or%</span> <span class='kw'>rhs</span>
+<span class='no'>lhs</span> <span class='kw'>%or%</span> <span class='no'>rhs</span>
 
-<span class='kw'>lhs</span> <span class='op'>%with%</span> <span class='kw'>rhs</span></pre>
+<span class='no'>lhs</span> <span class='kw'>%with%</span> <span class='no'>rhs</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -180,22 +192,23 @@
     
 
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%child%</a></code> - Selects elements where right hand is child of left hand, e.g.: <code>sel_tag('div') %child% sel_class('aClass')</code> selects elements with <code>aClass</code> who are direct children of <code>div</code> tags.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%or%</a></code> - Select left hand or right hand, e.g.: <code>sel_id('myId') %or% sel_class('myClass')</code> will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.</p></li>
-<li><p><code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%with%</a></code> - Left hand selector with right hand selector, e.g.: <code>sel_tag('div') %with% sel_class('aClass')</code> selects a <code>div</code> with a class of <code>aClass</code>. Ideal to narrow down the selection.</p></li>
+<li><p><code>%child%</code> - Selects elements where right hand is child of left hand, e.g.: <code>sel_tag('div') %child% sel_class('aClass')</code> selects elements with <code>aClass</code> who are direct children of <code>div</code> tags.</p></li>
+<li><p><code>%or%</code> - Select left hand or right hand, e.g.: <code>sel_id('myId') %or% sel_class('myClass')</code> will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.</p></li>
+<li><p><code>%with%</code> - Left hand selector with right hand selector, e.g.: <code>sel_tag('div') %with% sel_class('aClass')</code> selects a <code>div</code> with a class of <code>aClass</code>. Ideal to narrow down the selection.</p></li>
 </ul>
 
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># select all paragraph 'p' with "red" class</span>
-<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>) <span class='op'>%with%</span> <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: p.red</span></div><div class='input'>
+<span class='fu'><a href='selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>) <span class='kw'>%with%</span> <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: p.red</span></div><div class='input'>
 <span class='co'># the other way around works equally well</span>
-<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>) <span class='op'>%with%</span> <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: .redp</span></div><div class='input'>
+<span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"red"</span>) <span class='kw'>%with%</span> <span class='fu'><a href='selectors.html'>sel_tag</a></span>(<span class='st'>"p"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: .redp</span></div><div class='input'>
 <span class='co'># select multiple elements</span>
 <span class='co'># where id = "x" or class = "center" </span>
-<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"x"</span>) <span class='op'>%or%</span> <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"center"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #x,.center</span></div><div class='input'>
+<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"x"</span>) <span class='kw'>%or%</span> <span class='fu'><a href='selectors.html'>sel_class</a></span>(<span class='st'>"center"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #x,.center</span></div><div class='input'>
 <span class='co'># select element with id = "x" and parent's id = "y"</span>
-<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>) <span class='op'>%child%</span> <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #y #y</span></div><div class='input'></div></span></pre>
+<span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>) <span class='kw'>%child%</span> <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"y"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #y #y</span></div><div class='input'>
+</div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -211,7 +224,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
 </div>
 
       </footer>
