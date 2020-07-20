@@ -201,6 +201,51 @@ Linne <- R6::R6Class(
       cli::cli_alert_info("Use `show_css` method to see the CSS")
 
       invisible(self)
+    },
+#' @details Inject CSS
+#' 
+#' Dynamically inject CSS from the server of a shiny application.
+#' 
+#' @param build Whether to build the CSS with the `build` method.
+#' @param session A valid shiny session.
+#' 
+#' @examples 
+#' library(shiny)
+#' 
+#' ui <- fluidPage(
+#'   useLinne(),
+#'   actionButton("change", "Change me!")
+#' )
+#' 
+#' server <- function(input, output){
+#' 
+#'   linne <- Linne$
+#'     new()$
+#'     change(
+#'       sel_id("change"),
+#'       color = "white",
+#'       backgroundColor = "black"
+#'     )
+#' 
+#'   observeEvent(input$change, {
+#'     linne$inject()
+#'   })
+#' 
+#' }
+#' 
+#' if(interactive())
+#'  shinyApp(ui, server)
+#' 
+    inject = function(build = TRUE, session = shiny::getDefaultReactiveDomain()){
+      
+      if(interactive())
+        cli::cli_alert_warning("Remember to place `useLynn` in your shiny UI.")
+
+      if(build ) self$build()
+
+      session$sendCustomMessage("line-inject", private$.css)
+
+      invisible(self)
     }
   ),
   private = list(

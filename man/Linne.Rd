@@ -84,6 +84,37 @@ if(interactive())
 ## ------------------------------------------------
 
 \dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+
+## ------------------------------------------------
+## Method `Linne$inject`
+## ------------------------------------------------
+
+library(shiny)
+
+ui <- fluidPage(
+  useLinne(),
+  actionButton("change", "Change me!")
+)
+
+server <- function(input, output){
+
+  linne <- Linne$
+    new()$
+    change(
+      sel_id("change"),
+      color = "white",
+      backgroundColor = "black"
+    )
+
+  observeEvent(input$change, {
+    linne$inject()
+  })
+
+}
+
+if(interactive())
+ shinyApp(ui, server)
+
 }
 \section{Methods}{
 \subsection{Public methods}{
@@ -96,6 +127,7 @@ if(interactive())
 \item \href{#method-include}{\code{Linne$include()}}
 \item \href{#method-write}{\code{Linne$write()}}
 \item \href{#method-print}{\code{Linne$print()}}
+\item \href{#method-inject}{\code{Linne$inject()}}
 \item \href{#method-clone}{\code{Linne$clone()}}
 }
 }
@@ -361,6 +393,63 @@ Write the CSS to file.
 Print
 
 Prints information on the Linne object.
+}
+
+}
+\if{html}{\out{<hr>}}
+\if{html}{\out{<a id="method-inject"></a>}}
+\if{latex}{\out{\hypertarget{method-inject}{}}}
+\subsection{Method \code{inject()}}{
+\subsection{Usage}{
+\if{html}{\out{<div class="r">}}\preformatted{Linne$inject(build = TRUE, session = shiny::getDefaultReactiveDomain())}\if{html}{\out{</div>}}
+}
+
+\subsection{Arguments}{
+\if{html}{\out{<div class="arguments">}}
+\describe{
+\item{\code{build}}{Whether to build the CSS with the \code{build} method.}
+
+\item{\code{session}}{A valid shiny session.}
+}
+\if{html}{\out{</div>}}
+}
+\subsection{Details}{
+Inject CSS
+
+Dynamically inject CSS from the server of a shiny application.
+}
+
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{library(shiny)
+
+ui <- fluidPage(
+  useLinne(),
+  actionButton("change", "Change me!")
+)
+
+server <- function(input, output){
+
+  linne <- Linne$
+    new()$
+    change(
+      sel_id("change"),
+      color = "white",
+      backgroundColor = "black"
+    )
+
+  observeEvent(input$change, {
+    linne$inject()
+  })
+
+}
+
+if(interactive())
+ shinyApp(ui, server)
+
+}
+\if{html}{\out{</div>}}
+
 }
 
 }
