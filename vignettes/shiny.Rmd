@@ -18,6 +18,8 @@ library(linne)
 
 ## Introduction
 
+There are two main ways to use linne in shiny apps: 1) a convenient but inefficient one 2) an efficient but less flexible way.
+
 ## Include
 
 In shiny the easiest way to add the CSS to an application is to use the `include` method. Note however, that this is not advised in production, see the [`write`](#write) to improve performances.
@@ -81,6 +83,8 @@ shinyApp(ui, server)
 ## Write
 
 The `include` method will (by default) build the CSS every time it is called making it inefficient for prod. When deploying an app it is always better to save the generated CSS to a file then link that file in the shiny application. 
+
+Note that the CSS file has to be served in order to be accessible by the browser. RStudio defaults to the `www` directory, if you wish to place it in another directory you will have to use `shiny::addResourcePath`.
 
 ```r
 dir.create("www") # create static asset directory

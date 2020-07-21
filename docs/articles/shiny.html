@@ -134,60 +134,65 @@
 <div id="introduction" class="section level2">
 <h2 class="hasAnchor">
 <a href="#introduction" class="anchor"></a>Introduction</h2>
+<p>There are two main ways to use linne in shiny apps: 1) a convenient but inefficient one 2) an efficient but less flexible way.</p>
 </div>
 <div id="include" class="section level2">
 <h2 class="hasAnchor">
 <a href="#include" class="anchor"></a>Include</h2>
 <p>In shiny the easiest way to add the CSS to an application is to use the <code>include</code> method. Note however, that this is not advised in production, see the <a href="#write"><code>write</code></a> to improve performances.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">linne</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">linne</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
 
-<span class="no">linne</span> <span class="kw">&lt;-</span> <span class="no">Linne</span>$
-  <span class="fu">new</span>()$
+<span class="kw">linne</span> <span class="op">&lt;-</span> <span class="kw">Linne</span><span class="op">$</span>
+  <span class="fu">new</span>()<span class="op">$</span>
   <span class="fu">change</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"btn"</span>),
-    <span class="kw">color</span> <span class="kw">=</span> <span class="st">"white"</span>,
-    <span class="kw">backgroundColor</span> <span class="kw">=</span> <span class="st">"red"</span>
+    color = <span class="st">"white"</span>,
+    backgroundColor = <span class="st">"red"</span>
   )
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
-  <span class="no">linne</span>$<span class="fu">include</span>(), <span class="co"># incude CSS</span>
+<span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
+  <span class="kw">linne</span><span class="op">$</span><span class="fu">include</span>(), <span class="co"># incude CSS</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"btn"</span>, <span class="st">"I'm a red button"</span>)
 )
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>){}
+<span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>){}
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
+</pre></div>
 </div>
 <div id="inject" class="section level2">
 <h2 class="hasAnchor">
 <a href="#inject" class="anchor"></a>Inject</h2>
 <p>You can generate the CSS using <code>Linne</code> as per usual then inject it dynamically in the page with the <code>inject</code> method. Note that for this you will need to place <code>useLinne</code> in UI of shiny page.</p>
-<div class="sourceCode" id="cb2"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">linne</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">linne</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
 
-<span class="no">linne</span> <span class="kw">&lt;-</span> <span class="no">Linne</span>$
-  <span class="fu">new</span>()$
+<span class="kw">linne</span> <span class="op">&lt;-</span> <span class="kw">Linne</span><span class="op">$</span>
+  <span class="fu">new</span>()<span class="op">$</span>
   <span class="fu">change</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"change"</span>),
-    <span class="kw">color</span> <span class="kw">=</span> <span class="st">"white"</span>,
-    <span class="kw">backgroundColor</span> <span class="kw">=</span> <span class="st">"black"</span>
+    color = <span class="st">"white"</span>,
+    backgroundColor = <span class="st">"black"</span>
   )
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
+<span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
   <span class="fu"><a href="../reference/useLinne.html">useLinne</a></span>(), <span class="co"># only required for inject method</span>
   <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/actionButton.html">actionButton</a></span>(<span class="st">"change"</span>, <span class="st">"Change me!"</span>)
 )
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>){
+<span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>){
 
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(<span class="no">input</span>$<span class="no">change</span>, {
-    <span class="no">linne</span>$<span class="fu">inject</span>()
+  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/observeEvent.html">observeEvent</a></span>(<span class="kw">input</span><span class="op">$</span><span class="kw">change</span>, {
+    <span class="kw">linne</span><span class="op">$</span><span class="fu">inject</span>()
   })
 
 }
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
+</pre></div>
 <div class="figure">
 <img src="linne-inject.gif" alt=""><p class="caption">Inject CSS</p>
 </div>
@@ -196,31 +201,36 @@
 <h2 class="hasAnchor">
 <a href="#write" class="anchor"></a>Write</h2>
 <p>The <code>include</code> method will (by default) build the CSS every time it is called making it inefficient for prod. When deploying an app it is always better to save the generated CSS to a file then link that file in the shiny application.</p>
-<div class="sourceCode" id="cb3"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span>(<span class="st">"www"</span>) <span class="co"># create static asset directory</span>
+<p>Note that the CSS file has to be served in order to be accessible by the browser. RStudio defaults to the <code>www</code> directory, if you wish to place it in another directory you will have to use <code><a href="https://rdrr.io/pkg/shiny/man/resourcePaths.html">shiny::addResourcePath</a></code>.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/files2.html">dir.create</a></span>(<span class="st">"www"</span>) <span class="co"># create static asset directory</span>
 
-<span class="no">Linne</span>$
-  <span class="fu">new</span>()$
+<span class="kw">Linne</span><span class="op">$</span>
+  <span class="fu">new</span>()<span class="op">$</span>
   <span class="fu">change</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
-    <span class="kw">color</span> <span class="kw">=</span> <span class="st">"white"</span>,
-    <span class="kw">fontSize</span> <span class="kw">=</span> <span class="fl">30</span>
-  )$
-  <span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span>(<span class="st">"www/style.css"</span>) <span class="co"># save </span></pre></body></html></div>
+    color = <span class="st">"white"</span>,
+    fontSize = <span class="fl">30</span>
+  )<span class="op">$</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span>(<span class="st">"www/style.css"</span>) <span class="co"># save </span>
+</pre></div>
 <p>Then use the <code>link</code> tag to link to the CSS file.</p>
-<div class="sourceCode" id="cb4"><html><body><pre class="r"><span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">linne</span>)
-<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="no">shiny</span>)
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw">linne</span>)
+<span class="fu"><a href="https://rdrr.io/r/base/library.html">library</a></span>(<span class="kw"><a href="http://shiny.rstudio.com">shiny</a></span>)
 
-<span class="no">ui</span> <span class="kw">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
-  <span class="no">tags</span>$<span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(
-    <span class="no">tags</span>$<span class="fu">link</span>(<span class="kw">rel</span> <span class="kw">=</span> <span class="st">"stylesheet"</span>, <span class="kw">href</span> <span class="kw">=</span> <span class="st">"www/style.css"</span>)
+<span class="kw">ui</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/fluidPage.html">fluidPage</a></span>(
+  <span class="kw">tags</span><span class="op">$</span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span>(
+    <span class="kw">tags</span><span class="op">$</span><span class="fu">link</span>(rel = <span class="st">"stylesheet"</span>, href = <span class="st">"www/style.css"</span>)
   ),
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">p</a></span>(<span class="st">"This is rather large text"</span>),
-  <span class="fu"><a href="https://rdrr.io/pkg/shiny/man/reexports.html">p</a></span>(<span class="st">"This too!"</span>)
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"This is rather large text"</span>),
+  <span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"This too!"</span>)
 )
 
-<span class="no">server</span> <span class="kw">&lt;-</span> <span class="kw">function</span>(<span class="no">input</span>, <span class="no">output</span>){}
+<span class="kw">server</span> <span class="op">&lt;-</span> <span class="fu">function</span>(<span class="kw">input</span>, <span class="kw">output</span>){}
 
-<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="no">ui</span>, <span class="no">server</span>)</pre></body></html></div>
+<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/shinyApp.html">shinyApp</a></span>(<span class="kw">ui</span>, <span class="kw">server</span>)
+</pre></div>
 </div>
   </div>
 
@@ -239,7 +249,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
