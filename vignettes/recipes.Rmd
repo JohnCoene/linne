@@ -1,0 +1,67 @@
+---
+title: "Recipes"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Recipes}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+
+library(linne)
+```
+
+## Introduction
+
+This vignette walks the user through some applications of linne.
+
+## Shiny Inputs
+
+Shiny developers often want to customise how shiny inputs look and feel, which can be a bother. Let's say we want to change the label color of the `textInput` shiny input.
+
+```r
+shiny::textInput(inputId = "text", "Label") 
+```
+
+```{r}
+cat(as.character(shiny::textInput(inputId = "text", "Label")))
+```
+
+One might be tempted to only use `sel_id('text')`, as demonstrated above, this would not work. We could instead use on of the infix operators select the child tag "label" of the input.
+
+```{r}
+Linne$new()$
+  change(
+    sel_id("text") %child% sel_tag("label"),
+    color = "#f4a717"
+  )$show_css()
+```
+
+Now, just to demonstrate what is possible with CSS, say we want to change the font size of a specific option in a `selectInput`.
+
+```r
+shiny::selectInput("select", "Select one:", choices = letters[1:3]) 
+```
+
+```{r}
+cat(as.character(shiny::selectInput("select", "Select one:", choices = letters[1:3])))
+```
+
+We can again use a combination of selectors to select say, option "b", to a different size.
+
+```{r}
+Linne$new()$
+  change(
+    sel_id("select") # inputId = "select"
+      %child% 
+      sel_attr("value", "b"), # value = 'b'
+    color = "#f4a717"
+  )$show_css()
+```
+
+> A good way to conceptualise the `%child%` operator is to think of it like one uses the pipe in the [rvest](https://github.com/tidyverse/rvest) package or how one might use the pipe in [purrr](https://github.com/tidyverse/purrr): to gradually but surely go down the tree until the right node is selected.

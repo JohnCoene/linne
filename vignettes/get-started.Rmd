@@ -36,6 +36,10 @@ A core concept is that of selecting elements (to subsequently change their style
 shiny::p("Hello Linne", id = "myId")
 ```
 
+```{r}
+cat(as.character(shiny::p("Hello Linne", id = "myId")))
+```
+
 For instance, were one want to change the style of the element above, one could select it using its `id` with:
 
 ```{r}
@@ -65,6 +69,22 @@ linne <- Linne$
 ```
 
 Two things to note on the above, linne automatically converts integers and numerics into pixels: the above changes the size of the font of the element with `id = "myId"` to 20 pixels. Second, linne accepts camelCase, where the CSS uses hyphens: above we use `fontSize` instead of `font-size`. Note that you may pass the original CSS attributes but have to do so backticks.
+
+## Show CSS
+
+In order to learn and understand more about CSS you can use the `show_css` method to print the generated CSS to the console this passes invisibly so you can put it anywhere without breaking the pipe.
+
+```{r}
+Linne$
+  new()$
+  change(
+    sel_tag("p"),
+    fontSize = 30,
+    fontStyle = "italic",
+    color = "darkblue"
+  )$
+  show_css()
+```
 
 ## Include
 
@@ -96,22 +116,6 @@ shinyApp(ui, server)
 ![Output with linne](get-started-linne.png)
 
 <a href="rmarkdown.html" class="btn btn-primary">Use in R markdown</a>
-
-## Show CSS
-
-In order to learn and understand more about CSS you can use the `show_css` method to print the generated CSS to the console this passes invisibly so you can put it anywhere without breaking the pipe.
-
-```{r}
-Linne$
-  new()$
-  change(
-    sel_tag("p"),
-    fontSize = 30,
-    fontStyle = "italic",
-    color = "darkblue"
-  )$
-  show_css()
-```
 
 ## Example
 

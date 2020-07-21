@@ -5,7 +5,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>R markdown • linne</title>
+<title>Recipes • linne</title>
 <!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
 <link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
@@ -18,7 +18,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- pkgdown --><link href="../pkgdown.css" rel="stylesheet">
 <script src="../pkgdown.js"></script><link href="../extra.css" rel="stylesheet">
-<meta property="og:title" content="R markdown">
+<meta property="og:title" content="Recipes">
 <meta property="og:description" content="linne">
 <meta property="og:image" content="http://linne.john-coene.com/reference/figures/linne_social.png">
 <meta property="og:image:alt" content="CSS in R">
@@ -121,39 +121,89 @@
 
       
 
-      </header><script src="rmarkdown_files/header-attrs-2.3.2/header-attrs.js"></script><script src="rmarkdown_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="recipes_files/header-attrs-2.3.2/header-attrs.js"></script><script src="recipes_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
-      <h1 data-toc-skip>R markdown</h1>
+      <h1 data-toc-skip>Recipes</h1>
             
       
       
-      <div class="hidden name"><code>rmarkdown.Rmd</code></div>
+      <div class="hidden name"><code>recipes.Rmd</code></div>
 
     </div>
 
     
     
-<p>The <code>include</code> method will not work in R markdown documents. Instead one should use, in a separate script, the <code>write</code> method to save the CSS file.</p>
+<div id="introduction" class="section level2">
+<h2 class="hasAnchor">
+<a href="#introduction" class="anchor"></a>Introduction</h2>
+<p>This vignette walks the user through some applications of linne.</p>
+</div>
+<div id="shiny-inputs" class="section level2">
+<h2 class="hasAnchor">
+<a href="#shiny-inputs" class="anchor"></a>Shiny Inputs</h2>
+<p>Shiny developers often want to customise how shiny inputs look and feel, which can be a bother. Let’s say we want to change the label color of the <code>textInput</code> shiny input.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="kw">Linne</span><span class="op">$</span>
-  <span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
-    <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
-    color = <span class="st">"white"</span>,
-    fontSize = <span class="fl">30</span>
-  )<span class="op">$</span>
-  <span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span>(<span class="st">"style.css"</span>) <span class="co"># save </span>
+<span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(inputId = <span class="st">"text"</span>, <span class="st">"Label"</span>) 
 </pre></div>
-<p>Then use that file in the front matter of the R markdown file, for instance.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">output</span><span class="kw">:</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a><span class="at">  revealjs:</span><span class="fu">:revealjs_presentation</span><span class="kw">:</span></span>
-<span id="cb2-3"><a href="#cb2-3"></a><span class="at">    </span><span class="fu">css</span><span class="kw">:</span><span class="at"> style.css</span></span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/textInput.html">textInput</a></span>(inputId = <span class="st">"text"</span>, <span class="st">"Label"</span>)))
+<span class="co">#&gt; &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="co">#&gt;   &lt;label class="control-label" for="text"&gt;Label&lt;/label&gt;</span>
+<span class="co">#&gt;   &lt;input id="text" type="text" class="form-control" value=""/&gt;</span>
+<span class="co">#&gt; &lt;/div&gt;</span>
+</pre></div>
+<p>One might be tempted to only use <code><a href="../reference/selectors.html">sel_id('text')</a></code>, as demonstrated above, this would not work. We could instead use on of the infix operators select the child tag “label” of the input.</p>
+<div class="sourceCode" id="cb3"><pre class="downlit">
+<span class="kw">Linne</span><span class="op">$</span><span class="fu">new</span>()<span class="op">$</span>
+  <span class="fu">change</span>(
+    <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"text"</span>) <span class="op">%child%</span> <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"label"</span>),
+    color = <span class="st">"#f4a717"</span>
+  )<span class="op">$</span><span class="fu">show_css</span>()
+<span class="co">#&gt; #text label{</span>
+<span class="co">#&gt;  color:#f4a717;</span>
+<span class="co">#&gt; }</span>
+</pre></div>
+<p>Now, just to demonstrate what is possible with CSS, say we want to change the font size of a specific option in a <code>selectInput</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="downlit">
+<span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span>(<span class="st">"select"</span>, <span class="st">"Select one:"</span>, choices = <span class="kw">letters</span>[<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>]) 
+</pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit">
+<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/shiny/man/selectInput.html">selectInput</a></span>(<span class="st">"select"</span>, <span class="st">"Select one:"</span>, choices = <span class="kw">letters</span>[<span class="fl">1</span><span class="op">:</span><span class="fl">3</span>])))
+<span class="co">#&gt; &lt;div class="form-group shiny-input-container"&gt;</span>
+<span class="co">#&gt;   &lt;label class="control-label" for="select"&gt;Select one:&lt;/label&gt;</span>
+<span class="co">#&gt;   &lt;div&gt;</span>
+<span class="co">#&gt;     &lt;select id="select"&gt;&lt;option value="a" selected&gt;a&lt;/option&gt;</span>
+<span class="co">#&gt; &lt;option value="b"&gt;b&lt;/option&gt;</span>
+<span class="co">#&gt; &lt;option value="c"&gt;c&lt;/option&gt;&lt;/select&gt;</span>
+<span class="co">#&gt;     &lt;script type="application/json" data-for="select" data-nonempty=""&gt;{}&lt;/script&gt;</span>
+<span class="co">#&gt;   &lt;/div&gt;</span>
+<span class="co">#&gt; &lt;/div&gt;</span>
+</pre></div>
+<p>We can again use a combination of selectors to select say, option “b”, to a different size.</p>
+<div class="sourceCode" id="cb6"><pre class="downlit">
+<span class="kw">Linne</span><span class="op">$</span><span class="fu">new</span>()<span class="op">$</span>
+  <span class="fu">change</span>(
+    <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"select"</span>) <span class="co"># inputId = "select"</span>
+      <span class="op">%child%</span> 
+      <span class="fu"><a href="../reference/selectors.html">sel_attr</a></span>(<span class="st">"value"</span>, <span class="st">"b"</span>), <span class="co"># value = 'b'</span>
+    color = <span class="st">"#f4a717"</span>
+  )<span class="op">$</span><span class="fu">show_css</span>()
+<span class="co">#&gt; #select [value='b']{</span>
+<span class="co">#&gt;  color:#f4a717;</span>
+<span class="co">#&gt; }</span>
+</pre></div>
+<blockquote>
+<p>A good way to conceptualise the <code><a href="../reference/pipes.html">%child%</a></code> operator is to think of it like one uses the pipe in the <a href="https://github.com/tidyverse/rvest">rvest</a> package or how one might use the pipe in <a href="https://github.com/tidyverse/purrr">purrr</a>: to gradually but surely go down the tree until the right node is selected.</p>
+</blockquote>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
 
-      </div>
+        <nav id="toc" data-toggle="toc"><h2 data-toc-skip>Contents</h2>
+    </nav>
+</div>
 
 </div>
 

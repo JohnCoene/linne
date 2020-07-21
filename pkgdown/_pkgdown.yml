@@ -32,14 +32,16 @@ navbar:
       menu: 
         - text: "Get Started"
           href: articles/get-started.html
-        - text: Selectors
+        - text: "Selectors"
           href: articles/selectors.html
-        - text: Shiny
+        - text: "Shiny"
           href: articles/shiny.html
-        - text: R markdown
+        - text: "R markdown"
           href: articles/rmarkdown.html
-        - text: Advanced
+        - text: "Advanced"
           href: articles/advanced.html
+    - text: "Recipes"
+      href: articles/recipes.html
   right:
     - icon: fa-github fa-lg
       href: https://github.com/JohnCoene/linne
