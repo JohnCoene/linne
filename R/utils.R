@@ -20,7 +20,7 @@ chg2css <- function(x, def){
   # apply definitions
   x$change <- purrr::map(x$change, function(value, defs){
 
-    if(rlang::is_quosure(value)){
+    if(rlang::is_symbolic(value)){
       value <- rlang::as_label(value)
 
       if(value %in% names(defs))

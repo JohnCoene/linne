@@ -20,7 +20,7 @@ sel_class(value)
 
 sel_tag(value)
 
-sel_attr(value, attribute = NULL, tag = NULL)
+sel_attr(attribute, value = NULL, tag = NULL)
 }
 \arguments{
 \item{value}{Value of selector.}

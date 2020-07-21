@@ -16,7 +16,7 @@ Linne$
     fontFamily = "'Fira Code', monospace"
   )$
   change(
-    sel_attr("toc", "data-toggle") %child% sel_tag("a"),
+    sel_attr("data-toggle", "toc") %child% sel_tag("a"),
     color = orange,
   )$
   change( # change other h's

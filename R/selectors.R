@@ -64,21 +64,22 @@ sel_tag <- function(value){
 
 #' @rdname selectors
 #' @export
-sel_attr <- function(value, attribute = NULL, tag = NULL){
-  # checks
-  not_missing(value)
+sel_attr <- function(attribute, value = NULL, tag = NULL){
+  # check
   not_missing(attribute)
   
   # replace NULL
   tag <- ifelse(is.null(tag), "", tag)
   
-  # process attribute
-  if(is.null(attribute))
-    attribute <- ""
+  # preprocess
+  if(is.null(value))
+    value <- ""
   else
-    attribute <- sprintf("%s=", attribute)
+    value <- sprintf("='%s'", value)
   
-  construct_selector("%s[%s'%s']", tag, attribute, value)
+  attribute <- sprintf("%s", attribute)
+  
+  construct_selector("%s[%s%s]", tag, attribute, value)
 }
 
 # constructor for print methods

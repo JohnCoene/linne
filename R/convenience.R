@@ -10,7 +10,7 @@
 #'  new()$
 #'  change(
 #'    sel_id("id"),
-#'    color = rgba(255, 255, 255, .6)
+#'    color = rgba_(255, 255, 255, .6)
 #'  )
 #' 
 #' @name convenience
@@ -28,11 +28,11 @@ url_ <- function(value){
 #' @rdname convenience
 #' @export 
 rgb_ <- function(r, g, b){
-  sprintf("url(%s,%s,%s)", r, g, b)
+  sprintf("rgb(%s,%s,%s)", r, g, b)
 }
 
 #' @rdname convenience
 #' @export 
 rgba_ <- function(r, g, b, a = .5){
-  sprintf("url(%s,%s,%s, %s)", r, g, b, a)
+  sprintf("rgba(%s,%s,%s, %s)", r, g, b, a)
 }

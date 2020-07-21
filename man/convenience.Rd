@@ -29,7 +29,7 @@ Linne$
  new()$
  change(
    sel_id("id"),
-   color = rgba(255, 255, 255, .6)
+   color = rgba_(255, 255, 255, .6)
  )
 
 }
