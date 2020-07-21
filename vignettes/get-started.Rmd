@@ -18,7 +18,7 @@ library(linne)
 
 ## Introduction
 
-There are two core verbs to linne: select and change. First you select an element (e.g.: a button) then apply changes (e.g.: change the colour).
+There are two core actions to linne: first you select an element (e.g.: a button) then apply changes (e.g.: change the colour).
 
 At its core the package consists of a family of selectors and a reference class. This reference class is instantiated from the `Linne` object with the `new` method.
 
