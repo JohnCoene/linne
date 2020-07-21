@@ -6,3 +6,5 @@
 ^pkgdown$
 ^index\.md$
 ^CODE_OF_CONDUCT\.md$
+^\.travis\.yml$
+^appveyor\.yml$
