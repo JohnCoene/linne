@@ -26,3 +26,7 @@ test_that("Whens", {
   expect_equal(sel_tag("a")  %>% when_active() %>% as_c(), "a:active")
   expect_equal(sel_tag("a")  %>% when_focus() %>% as_c(), "a:focus")
 })
+
+test_that("Errors", {
+  expect_error(sel_id())
+})
