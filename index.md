@@ -3,6 +3,7 @@
 [![Travis build status](https://travis-ci.com/JohnCoene/linne.svg?branch=master)](https://travis-ci.com/JohnCoene/linne)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/linne?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/linne)
 [![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/linne/badge.svg)](https://coveralls.io/r/JohnCoene/linne?branch=master)
+[![Github Sponsor](https://img.shields.io/badge/Sponsor--pink?style=flat-square&logo=github)](https://github.com/sponsors/JohnCoene)
 <!-- badges: end -->
 
 # linne
