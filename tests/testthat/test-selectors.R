@@ -3,6 +3,8 @@ context("Testing selection")
 as_c <- as.character
 
 test_that("Selectors", {
+  selector <- sel_id("id")
+  expect_visible(selector)
   expect_equal(as_c(sel_id("id")), "#id")
   expect_equal(as_c(sel_tag("body")), "body")
   expect_equal(as_c(sel_input("id")), "#id")
