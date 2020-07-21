@@ -177,13 +177,13 @@
     <p>Convenience functions for common operations.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>important_</span>(<span class='no'>value</span>)
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>url_</span>(<span class='no'>value</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>url_</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>rgb_</span>(<span class='no'>r</span>, <span class='no'>g</span>, <span class='no'>b</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgb_</a></span>(<span class='kw'>r</span>, <span class='kw'>g</span>, <span class='kw'>b</span>)
 
-<span class='fu'>rgba_</span>(<span class='no'>r</span>, <span class='no'>g</span>, <span class='no'>b</span>, <span class='kw'>a</span> <span class='kw'>=</span> <span class='fl'>0.5</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgba_</a></span>(<span class='kw'>r</span>, <span class='kw'>g</span>, <span class='kw'>b</span>, a = <span class='fl'>0.5</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -198,14 +198,26 @@
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="functions"><a class="anchor" href="#functions"></a>Functions</h2>
+
+    
+
+<ul>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_()</a></code> - Makes it such that the change cannot be overwritten by other rules (other selections).</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgb_()</a></code>, <code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgba_()</a></code> - Functions for red, green, blue and alpha for transparency.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>url_()</a></code> - Wrap in a <code>url</code> CSS function call.</p></li>
+</ul>
+
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='no'>Linne</span>$
- <span class='fu'>new</span>()$
+    <pre class="examples"><div class='input'><span class='kw'>Linne</span><span class='op'>$</span>
+ <span class='fu'>new</span>()<span class='op'>$</span>
  <span class='fu'>change</span>(
-   <span class='fu'><a href='selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>),
-   <span class='kw'>color</span> <span class='kw'>=</span> <span class='fu'>rgba</span>(<span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>.6</span>)
- )</div></pre>
+   <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>),
+   color = <span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgba_</a></span>(<span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>.6</span>),
+   fontSize = <span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_</a></span>(<span class='fl'>20</span>)
+ )
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -221,7 +233,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

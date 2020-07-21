@@ -132,14 +132,16 @@
     
     
 <p>The <code>include</code> method will not work in R markdown documents. Instead one should use, in a separate script, the <code>write</code> method to save the CSS file.</p>
-<div class="sourceCode" id="cb1"><html><body><pre class="r"><span class="no">Linne</span>$
-  <span class="fu">new</span>()$
+<div class="sourceCode" id="cb1"><pre class="downlit">
+<span class="kw">Linne</span><span class="op">$</span>
+  <span class="fu">new</span>()<span class="op">$</span>
   <span class="fu">change</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
-    <span class="kw">color</span> <span class="kw">=</span> <span class="st">"white"</span>,
-    <span class="kw">fontSize</span> <span class="kw">=</span> <span class="fl">30</span>
-  )$
-  <span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span>(<span class="st">"style.css"</span>) <span class="co"># save </span></pre></body></html></div>
+    color = <span class="st">"white"</span>,
+    fontSize = <span class="fl">30</span>
+  )<span class="op">$</span>
+  <span class="fu"><a href="https://rdrr.io/r/base/write.html">write</a></span>(<span class="st">"style.css"</span>) <span class="co"># save </span>
+</pre></div>
 <p>Then use that file in the front matter of the R markdown file, for instance.</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">output</span><span class="kw">:</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="at">  revealjs:</span><span class="fu">:revealjs_presentation</span><span class="kw">:</span></span>
@@ -159,7 +161,7 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>

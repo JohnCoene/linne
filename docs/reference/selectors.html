@@ -177,17 +177,17 @@
     <p>Create selectors to select particular elements.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>sel_id</span>(<span class='no'>value</span>)
+    <pre class="usage"><span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>sel_input</span>(<span class='no'>value</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_input</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>sel_all</span>()
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_all</a></span>()
 
-<span class='fu'>sel_class</span>(<span class='no'>value</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>sel_tag</span>(<span class='no'>value</span>)
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_tag</a></span>(<span class='kw'>value</span>)
 
-<span class='fu'>sel_attr</span>(<span class='no'>value</span>, <span class='kw'>attribute</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>tag</span> <span class='kw'>=</span> <span class='kw'>NULL</span>)</pre>
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_attr</a></span>(<span class='kw'>attribute</span>, value = <span class='kw'>NULL</span>, tag = <span class='kw'>NULL</span>)</pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -214,26 +214,25 @@
     
 
 <ul>
-<li><p><code>sel_id()</code> - Select an object by its id, e.g.: <code>sel_id('btn')</code> selects <code><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>shiny::actionButton('btn', 'Button')</a></code>.</p></li>
-<li><p><code>sel_all()</code> - Selects everything.</p></li>
-<li><p><code>sel_input()</code> - Selects an input by its id, e.g.: <code>sel_id('txt')</code> selects <code><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>shiny::textInput('txt', 'Text')</a></code>.</p></li>
-<li><p><code>sel_class()</code> - Select all elements bearing a specific class, e.g.: <code>sel_class('cls')</code>, selects <code><a href='https://rdrr.io/pkg/shiny/man/reexports.html'>shiny::h1('hello', class = 'cls')</a></code>.</p></li>
-<li><p><code>sel_tag()</code> - Select all tags, e.g.: <code>sel_tag('p')</code> selects <code>p('hello')</code>.</p></li>
-<li><p><code>sel_attr()</code> - Select all tags with a specific attribute.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id()</a></code> - Select an object by its id, e.g.: <code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id('btn')</a></code> selects <code><a href='https://rdrr.io/pkg/shiny/man/actionButton.html'>shiny::actionButton('btn', 'Button')</a></code>.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_all()</a></code> - Selects everything.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_input()</a></code> - Selects an input by its id, e.g.: <code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id('txt')</a></code> selects <code><a href='https://rdrr.io/pkg/shiny/man/textInput.html'>shiny::textInput('txt', 'Text')</a></code>.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class()</a></code> - Select all elements bearing a specific class, e.g.: <code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class('cls')</a></code>, selects <code><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>shiny::h1('hello', class = 'cls')</a></code>.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_tag()</a></code> - Select all tags, e.g.: <code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_tag('p')</a></code> selects <code><a href='https://rdrr.io/pkg/htmltools/man/builder.html'>p('hello')</a></code>.</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_attr()</a></code> - Select all tags with a specific attribute.</p></li>
 </ul>
 
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
-    <div class='dont-index'><p><code><a href='pipes.html'>%with%</a></code>, <code><a href='pipes.html'>%or%</a></code>, and <code><a href='pipes.html'>%child%</a></code> as well as
-<code><a href='when.html'>when_active()</a></code>, <code><a href='when.html'>when_hover()</a></code>, and <code><a href='when.html'>when_focus()</a></code>
+    <div class='dont-index'><p><code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%with%</a></code>, <code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%or%</a></code>, and <code><a href='https://rdrr.io/pkg/linne/man/pipes.html'>%child%</a></code> as well as
+<code><a href='https://rdrr.io/pkg/linne/man/when.html'>when_active()</a></code>, <code><a href='https://rdrr.io/pkg/linne/man/when.html'>when_hover()</a></code>, and <code><a href='https://rdrr.io/pkg/linne/man/when.html'>when_focus()</a></code>
 for more sophisticated element selection.</p></div>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='co'># select element where id = x</span>
-<span class='fu'>sel_id</span>(<span class='st'>"x"</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #x</span></div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"x"</span>)</div><div class='output co'>#&gt; <span class='message'><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: #x</span></div><div class='input'>
 <span class='co'># select all elements with class = "container"</span>
-<span class='fu'>sel_class</span>(<span class='st'>"container"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: .container</span></div><div class='input'>
-</div></span></pre>
+<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"container"</span>)</div><div class='output co'>#&gt; <span class='message'></span><span style='color: #00BBBB;'>ℹ</span><span> CSS selector: .container</span></div><div class='input'></div></span></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
@@ -249,7 +248,7 @@ for more sophisticated element selection.</p></div>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.</p>
+  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.5.1.9000.</p>
 </div>
 
       </footer>
