@@ -4,9 +4,8 @@
 \alias{Linne}
 \title{Linne}
 \description{
-Linne
-
-Linne
+Generate CSS from R code. Initialise a new CSS environment with \code{new},
+use \code{rule} to define CSS rules.
 }
 \section{Attributes}{
 

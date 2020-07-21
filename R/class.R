@@ -1,5 +1,8 @@
 #' Linne
 #' 
+#' Generate CSS from R code. Initialise a new CSS environment with `new`,
+#' use `rule` to define CSS rules.
+#' 
 #' @export 
 Linne <- R6::R6Class(
   "Linne",
