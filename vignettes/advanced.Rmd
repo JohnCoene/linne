@@ -18,7 +18,7 @@ library(linne)
 
 ## Define
 
-You can use the `define` method to define global variables. This can make things clearer and more efficient.
+You can use the `define` method to define global variables. This can make things clearer and more efficient. Note that these variables are referred to by their bare (unquoted) names in the `change` method.
 
 ```{r}
 Linne$
@@ -38,7 +38,7 @@ Linne$
   )
 ```
 
-Note that these variables are referred to b their bare (unquoted) names in the `change` method.
+In the example above were I to later want to change the `theme` color it would have to be changed in only one place.
 
 ## Import
 
