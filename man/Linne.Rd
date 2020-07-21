@@ -10,11 +10,11 @@ Linne
 }
 \section{Attributes}{
 
-There are hundreds of attributes to pass to the three-dotconstruct (\code{...}),
-a comprehensive list of them can be found on
+There are hundreds of attributes to pass to the three-dot
+construct (\code{...}), a comprehensive list of them can be found on
 \href{https://www.w3schools.com/cssref/}{w3schools}.
 
-Linne accepts camelcase for convenience, e.g.: \code{font-size} or \code{fontSize}.
+Note that Linne accepts camelCase for convenience, e.g.: \code{font-size} or \code{fontSize}.
 }
 
 \examples{
@@ -30,6 +30,30 @@ Linne$new()$define(baseColor = "blue")
 ## ------------------------------------------------
 
 Linne$new()$rule(sel_id("myButton"), color = "blue", fontSize = 50)
+
+## ------------------------------------------------
+## Method `Linne$build`
+## ------------------------------------------------
+
+Linne$
+ new()$
+ define(primary_color = 'red')$
+ rule(
+   sel_id("myButton"), 
+   color = primary_color, 
+   fontSize = 50
+ )$
+ rule(
+   sel_class("container"),
+   backgroundColor = primary_color
+ )$
+ build()
+
+## ------------------------------------------------
+## Method `Linne$get_css`
+## ------------------------------------------------
+
+Linne$new()$rule(sel_id("myId"), fontSize = 20)$get_css()
 
 ## ------------------------------------------------
 ## Method `Linne$show_css`
@@ -182,6 +206,8 @@ camelcase, e.g.: \code{font-style} or \code{fontStyle}.}
 }
 \subsection{Details}{
 Rule
+
+Define a CSS rule.
 }
 
 \subsection{Returns}{
@@ -208,21 +234,26 @@ Self: the \code{Linne} object.
 Builds CSS
 
 Builds the CSS from definitions and rules.
+}
 
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Linne$
+ new()$
+ define(primary_color = 'red')$
+ rule(
+   sel_id("myButton"), 
+   color = primary_color, 
+   fontSize = 50
+ )$
+ rule(
+   sel_class("container"),
+   backgroundColor = primary_color
+ )$
+ build()
+}
+\if{html}{\out{</div>}}
 
-Linne$
-new()$
-define(primary_color = 'red')$
-rule(
-sel_id("myButton"),
-color = primary_color,
-fontSize = 50
-)$
-rule(
-sel_class("container"),
-backgroundColor = primary_color
-)$
-build()
 }
 
 }
@@ -248,6 +279,14 @@ Retrieve the CSS
 \subsection{Returns}{
 A string.
 }
+\subsection{Examples}{
+\if{html}{\out{<div class="r example copy">}}
+\preformatted{Linne$new()$rule(sel_id("myId"), fontSize = 20)$get_css()
+}
+\if{html}{\out{</div>}}
+
+}
+
 }
 \if{html}{\out{<hr>}}
 \if{html}{\out{<a id="method-show_css"></a>}}

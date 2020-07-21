@@ -66,7 +66,7 @@ Linne <- R6::R6Class(
 #' 
 #' Builds the CSS from definitions and rules.
 #' 
-#' @details 
+#' @examples 
 #' Linne$
 #'  new()$
 #'  define(primary_color = 'red')$
@@ -89,6 +89,9 @@ Linne <- R6::R6Class(
 #' @param build Whether to build the CSS with the `build` method.
 #' 
 #' @return A string.
+#' 
+#' @examples 
+#' Linne$new()$rule(sel_id("myId"), fontSize = 20)$get_css()
     get_css = function(build = TRUE){
       private$.build()
       private$.minified()
