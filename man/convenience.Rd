@@ -27,7 +27,7 @@ Convenience functions for common operations.
 \section{Functions}{
 
 \itemize{
-\item \code{\link[=important_]{important_()}} - Makes it such that the change cannot be overwritten by other rules (other selections).
+\item \code{\link[=important_]{important_()}} - Makes it such that the rule cannot be overwritten by other rules (other selections).
 \item \code{\link[=rgb_]{rgb_()}}, \code{\link[=rgba_]{rgba_()}} - Functions for red, green, blue and alpha for transparency.
 \item \code{\link[=url_]{url_()}} - Wrap in a \code{url} CSS function call.
 }
@@ -36,7 +36,7 @@ Convenience functions for common operations.
 \examples{
 Linne$
  new()$
- change(
+ rule(
    sel_id("id"),
    color = rgba_(255, 255, 255, .6),
    fontSize = important_(20)

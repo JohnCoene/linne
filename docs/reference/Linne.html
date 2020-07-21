@@ -199,7 +199,7 @@ a comprehensive list of them can be found on
 
 <ul>
 <li><p><a href='#method-define'><code>Linne$define()</code></a></p></li>
-<li><p><a href='#method-change'><code>Linne$change()</code></a></p></li>
+<li><p><a href='#method-rule'><code>Linne$rule()</code></a></p></li>
 <li><p><a href='#method-build'><code>Linne$build()</code></a></p></li>
 <li><p><a href='#method-get_css'><code>Linne$get_css()</code></a></p></li>
 <li><p><a href='#method-show_css'><code>Linne$show_css()</code></a></p></li>
@@ -230,10 +230,10 @@ a comprehensive list of them can be found on
 <p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>define</span>(baseColor = <span class='st'>"blue"</span>)</pre><p></div></p>
 
 <p><hr>
-<a id="method-change"></a></p><h3>Method <code>change()</code></h3>
+<a id="method-rule"></a></p><h3>Method <code>rule()</code></h3>
 
 <h3>Usage</h3>
-<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>change</span>(<span class='kw'>selector</span>, <span class='kw'>...</span>)</pre><p></div></p>
+<p><div class="r"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>rule</span>(<span class='kw'>selector</span>, <span class='kw'>...</span>)</pre><p></div></p>
 
 <h3>Arguments</h3>
 <p><div class="arguments"></p><dl>
@@ -244,12 +244,12 @@ camelcase, e.g.: <code>font-style</code> or <code>fontStyle</code>.</p></dd>
 
 </dl><p></div></p>
 <h3>Details</h3>
-<p>Change</p>
+<p>Rule</p>
 
 <h3>Returns</h3>
 <p>Self: the <code>Linne</code> object.</p>
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>rule</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)</pre><p></div></p>
 
 <p><hr>
 <a id="method-build"></a></p><h3>Method <code><a href='https://rdrr.io/r/utils/PkgUtils.html'>build()</a></code></h3>
@@ -259,17 +259,17 @@ camelcase, e.g.: <code>font-style</code> or <code>fontStyle</code>.</p></dd>
 
 <h3>Details</h3>
 <p>Builds CSS</p>
-<p>Builds the CSS from definitions and changes.</p>
+<p>Builds the CSS from definitions and rules.</p>
 
 <p>Linne$
 new()$
 define(primary_color = 'red')$
-change(
+rule(
 sel_id("myButton"),
 color = primary_color,
 fontSize = 50
 )$
-change(
+rule(
 sel_class("container"),
 backgroundColor = primary_color
 )$
@@ -306,7 +306,7 @@ build()</p>
 <p>Prints Generated CSS</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</pre><p></div></p>
+<p><div class="r example copy"></p><pre><span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>rule</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</pre><p></div></p>
 
 <p><hr>
 <a id="method-import"></a></p><h3>Method <code>import()</code></h3>
@@ -348,13 +348,13 @@ build()</p>
 <span class='kw'>css</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
   <span class='fu'>new</span>()<span class='op'>$</span>
   <span class='fu'>define</span>(grey = <span class='st'>'#c4c4c4'</span>)<span class='op'>$</span>
-  <span class='fu'>change</span>(
+  <span class='fu'>rule</span>(
     <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), 
     backgroundColor = <span class='st'>'red'</span>, 
     fontSize = <span class='fl'>20</span>,
     color = <span class='kw'>grey</span>
   )<span class='op'>$</span>
-  <span class='fu'>change</span>(
+  <span class='fu'>rule</span>(
     <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
     color = <span class='kw'>grey</span>
   )
@@ -396,7 +396,7 @@ build()</p>
 <p>Write the CSS to file.</p>
 
 <h3>Examples</h3>
-<p><div class="r example copy"></p><pre>\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+<p><div class="r example copy"></p><pre>\dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 </pre><p></div></p>
 
 <p><hr>
@@ -438,7 +438,7 @@ build()</p>
 
   <span class='kw'>linne</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
     <span class='fu'>new</span>()<span class='op'>$</span>
-    <span class='fu'>change</span>(
+    <span class='fu'>rule</span>(
       <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
       color = <span class='st'>"white"</span>,
       backgroundColor = <span class='st'>"black"</span>
@@ -475,16 +475,16 @@ build()</p>
 <span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>define</span>(baseColor = <span class='st'>"blue"</span>)
 
 <span class='co'>## ------------------------------------------------</span>
-<span class='co'>## Method `Linne$change`</span>
+<span class='co'>## Method `Linne$rule`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)
+<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>rule</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>, fontSize = <span class='fl'>50</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$show_css`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</div><div class='output co'>#&gt; #myButton{
+<span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>rule</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), color = <span class='st'>"blue"</span>)<span class='op'>$</span><span class='fu'>show_css</span>()</div><div class='output co'>#&gt; #myButton{
 #&gt; 	color:blue;
 #&gt; }</div><div class='input'>
 <span class='co'>## ------------------------------------------------</span>
@@ -501,13 +501,13 @@ build()</p>
 <span class='kw'>css</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
   <span class='fu'>new</span>()<span class='op'>$</span>
   <span class='fu'>define</span>(grey = <span class='st'>'#c4c4c4'</span>)<span class='op'>$</span>
-  <span class='fu'>change</span>(
+  <span class='fu'>rule</span>(
     <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"myButton"</span>), 
     backgroundColor = <span class='st'>'red'</span>, 
     fontSize = <span class='fl'>20</span>,
     color = <span class='kw'>grey</span>
   )<span class='op'>$</span>
-  <span class='fu'>change</span>(
+  <span class='fu'>rule</span>(
     <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_class</a></span>(<span class='st'>"aClass"</span>),
     color = <span class='kw'>grey</span>
   )
@@ -532,7 +532,7 @@ build()</p>
 <span class='co'>## Method `Linne$write`</span>
 <span class='co'>## ------------------------------------------------</span>
 
-<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>change</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), fontStyle = <span class='st'>"italic"</span>)<span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='st'>"styles.css"</span>)
+<span class='co'>if</span> (<span class='fl'>FALSE</span>) <span class='kw'>Linne</span><span class='op'>$</span><span class='fu'>new</span>()<span class='op'>$</span><span class='fu'>rule</span>(<span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>), fontStyle = <span class='st'>"italic"</span>)<span class='op'>$</span><span class='fu'><a href='https://rdrr.io/r/base/write.html'>write</a></span>(<span class='st'>"styles.css"</span>)
 
 <span class='co'>## ------------------------------------------------</span>
 <span class='co'>## Method `Linne$inject`</span>
@@ -549,7 +549,7 @@ build()</p>
 
   <span class='kw'>linne</span> <span class='op'>&lt;-</span> <span class='kw'>Linne</span><span class='op'>$</span>
     <span class='fu'>new</span>()<span class='op'>$</span>
-    <span class='fu'>change</span>(
+    <span class='fu'>rule</span>(
       <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"change"</span>),
       color = <span class='st'>"white"</span>,
       backgroundColor = <span class='st'>"black"</span>

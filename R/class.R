@@ -27,53 +27,55 @@ Linne <- R6::R6Class(
       private$.definitions <- append(private$.definitions, definition)
       invisible(self)
     },
-#' @details Change
+#' @details Rule
+#' 
+#' Define a CSS rule.
 #' 
 #' @param selector An object of class `selector` as returned by the `sel_*` family of functions.
 #' @param ... Declarations: properties and their values. This accepts
 #' camelcase, e.g.: `font-style` or `fontStyle`. 
 #' 
 #' @section Attributes:
-#' There are hundreds of attributes to pass to the three-dotconstruct (`...`), 
-#' a comprehensive list of them can be found on 
+#' There are hundreds of attributes to pass to the three-dot 
+#' construct (`...`), a comprehensive list of them can be found on 
 #' [w3schools](https://www.w3schools.com/cssref/).
 #' 
-#' Linne accepts camelcase for convenience, e.g.: `font-size` or `fontSize`.
+#' Note that Linne accepts camelCase for convenience, e.g.: `font-size` or `fontSize`.
 #' 
 #' @return Self: the `Linne` object.
 #' 
 #' @examples
-#' Linne$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
-    change = function(selector, ...){
+#' Linne$new()$rule(sel_id("myButton"), color = "blue", fontSize = 50)
+    rule = function(selector, ...){
 
       # enquo
       if(missing(selector))
         stop("Missing `selector`, see `sel_*` family of functions", call. = FALSE)
 
-      change <- list(
+      rule <- list(
         selector = selector,
-        change = capture(...)
+        rule = capture(...)
       )
 
-      private$.changes <- append(private$.changes, list(change))
+      private$.rules <- append(private$.rules, list(rule))
 
       invisible(self)
 
     },
 #' @details Builds CSS
 #' 
-#' Builds the CSS from definitions and changes.
+#' Builds the CSS from definitions and rules.
 #' 
 #' @details 
 #' Linne$
 #'  new()$
 #'  define(primary_color = 'red')$
-#'  change(
+#'  rule(
 #'    sel_id("myButton"), 
 #'    color = primary_color, 
 #'    fontSize = 50
 #'  )$
-#'  change(
+#'  rule(
 #'    sel_class("container"),
 #'    backgroundColor = primary_color
 #'  )$
@@ -96,7 +98,7 @@ Linne <- R6::R6Class(
 #' @param build Whether to build the CSS with the `build` method.
 #' 
 #' @examples
-#' Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+#' Linne$new()$rule(sel_id("myButton"), color = "blue")$show_css()
     show_css = function(build = TRUE){
       if(build) self$build()
 
@@ -128,13 +130,13 @@ Linne <- R6::R6Class(
 #' css <- Linne$
 #'   new()$
 #'   define(grey = '#c4c4c4')$
-#'   change(
+#'   rule(
 #'     sel_id("myButton"), 
 #'     backgroundColor = 'red', 
 #'     fontSize = 20,
 #'     color = grey
 #'   )$
-#'   change(
+#'   rule(
 #'     sel_class("aClass"),
 #'     color = grey
 #'   )
@@ -178,7 +180,7 @@ Linne <- R6::R6Class(
 #' @param pretty Whether to keep tabs and newlines.
 #' 
 #' @examples
-#' \dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+#' \dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
     write = function(path = "style.css", pretty = FALSE, build = TRUE){
       if(build) self$build()
 
@@ -197,14 +199,14 @@ Linne <- R6::R6Class(
 #' Prints information on the Linne object. 
     print = function(){
       defs <- length(private$.definitions)
-      changes <- length(private$.changes)
+      rules <- length(private$.rules)
       has_css <- !is.null(private$.css)
 
       # intro
       cli::cli_h2("Linne")
       cat("\n")
       cli::cat_bullet("Definition(s): ", defs)
-      cli::cat_bullet("Change(s): ", changes)
+      cli::cat_bullet("Rule(s): ", rules)
       cli::cat_bullet("Built: ", has_css)
       
       cat("\n")
@@ -232,7 +234,7 @@ Linne <- R6::R6Class(
 #' 
 #'   linne <- Linne$
 #'     new()$
-#'     change(
+#'     rule(
 #'       sel_id("change"),
 #'       color = "white",
 #'       backgroundColor = "black"
@@ -261,7 +263,7 @@ Linne <- R6::R6Class(
   private = list(
     .css = NULL,
     .imports = c(),
-    .changes = list(),
+    .rules = list(),
     .definitions = list(),
     .minified = function(){
       gsub("\\n|\\t", "", private$.css)
@@ -278,16 +280,16 @@ Linne <- R6::R6Class(
     },
     # build internal
     .build = function(){
-      # process changes
-      chg <- purrr::map(private$.changes, chg2css, private$.definitions)
+      # process rules
+      chg <- purrr::map(private$.rules, chg2css, private$.definitions)
       
       css <- ""
       if(length(private$.imports))
         css <- sprintf("@import url('%s');\n\n", private$.imports)
 
-      changes <- paste0(unlist(chg), collapse = "\n\n")
+      rules <- paste0(unlist(chg), collapse = "\n\n")
 
-      private$.css <- paste0(css, changes, collapse = "\n")
+      private$.css <- paste0(css, rules, collapse = "\n")
       invisible()
     }
   )

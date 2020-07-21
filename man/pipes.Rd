@@ -23,7 +23,7 @@ Convenient pipes for more sophisticated selectors.
 
 \itemize{
 \item \code{\link{\%child\%}} - Selects elements where right hand is child of left hand, e.g.: \code{sel_tag('div') \%child\% sel_class('aClass')} selects elements with \code{aClass} who are direct children of \code{div} tags.
-\item \code{\link{\%or\%}} - Select left hand or right hand, e.g.: \code{sel_id('myId') \%or\% sel_class('myClass')} will select both the element with the id and elements with the class. Ideal to select and apply changes multiple elements at once.
+\item \code{\link{\%or\%}} - Select left hand or right hand, e.g.: \code{sel_id('myId') \%or\% sel_class('myClass')} will select both the element with the id and elements with the class. Ideal to select and apply rules multiple elements at once.
 \item \code{\link{\%with\%}} - Left hand selector with right hand selector, e.g.: \code{sel_tag('div') \%with\% sel_class('aClass')} selects a \code{div} with a class of \code{aClass}. Ideal to narrow down the selection.
 }
 }

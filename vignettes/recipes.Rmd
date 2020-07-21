@@ -36,7 +36,7 @@ One might be tempted to only use `sel_id('text')`, as demonstrated above, this w
 
 ```{r}
 Linne$new()$
-  change(
+  rule(
     sel_id("text") %child% sel_tag("label"),
     color = "#f4a717"
   )$show_css()
@@ -56,7 +56,7 @@ We can again use a combination of selectors to select say, option "b", to a diff
 
 ```{r}
 Linne$new()$
-  change(
+  rule(
     sel_id("select") # inputId = "select"
       %child% 
       sel_attr("value", "b"), # value = 'b'
@@ -65,3 +65,4 @@ Linne$new()$
 ```
 
 > A good way to conceptualise the `%child%` operator is to think of it like one uses the pipe in the [rvest](https://github.com/tidyverse/rvest) package or how one might use the pipe in [purrr](https://github.com/tidyverse/purrr): to gradually but surely go down the tree until the right node is selected.
+

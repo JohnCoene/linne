@@ -21,7 +21,7 @@ The `include` method will not work in R markdown documents. Instead one should u
 ```r
 Linne$
   new()$
-  change(
+  rule(
     sel_tag("p"),
     color = "white",
     fontSize = 30

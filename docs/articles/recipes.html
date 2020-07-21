@@ -156,7 +156,7 @@
 <p>One might be tempted to only use <code><a href="../reference/selectors.html">sel_id('text')</a></code>, as demonstrated above, this would not work. We could instead use on of the infix operators select the child tag “label” of the input.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="kw">Linne</span><span class="op">$</span><span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"text"</span>) <span class="op">%child%</span> <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"label"</span>),
     color = <span class="st">"#f4a717"</span>
   )<span class="op">$</span><span class="fu">show_css</span>()
@@ -183,7 +183,7 @@
 <p>We can again use a combination of selectors to select say, option “b”, to a different size.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="kw">Linne</span><span class="op">$</span><span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"select"</span>) <span class="co"># inputId = "select"</span>
       <span class="op">%child%</span> 
       <span class="fu"><a href="../reference/selectors.html">sel_attr</a></span>(<span class="st">"value"</span>, <span class="st">"b"</span>), <span class="co"># value = 'b'</span>

@@ -137,7 +137,7 @@
 <div id="define" class="section level2">
 <h2 class="hasAnchor">
 <a href="#define" class="anchor"></a>Define</h2>
-<p>You can use the <code>define</code> method to define global variables. This can make things clearer and more efficient. Note that these variables are referred to by their bare (unquoted) names in the <code>change</code> method.</p>
+<p>You can use the <code>define</code> method to define global variables. This can make things clearer and more efficient. Note that these variables are referred to by their bare (unquoted) names in the <code>rule</code> method.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
@@ -145,12 +145,12 @@
     theme = <span class="st">"blue"</span>,
     font_size = <span class="fl">20</span>
   )<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"h1"</span>),
     color = <span class="kw">theme</span>,
     fontSize = <span class="kw">font_size</span>
   )<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
     color = <span class="kw">theme</span>
   )
@@ -170,7 +170,7 @@
 <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
   <span class="fu">import</span>(<span class="st">"https://fonts.googleapis.com/css2?family=Roboto:wght@100&amp;display=swap"</span>)<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_all</a></span>(),
     fontFamily = <span class="st">"'Roboto', sans-serif"</span>
   )

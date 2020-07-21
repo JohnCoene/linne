@@ -26,16 +26,16 @@ Linne accepts camelcase for convenience, e.g.: \code{font-size} or \code{fontSiz
 Linne$new()$define(baseColor = "blue")
 
 ## ------------------------------------------------
-## Method `Linne$change`
+## Method `Linne$rule`
 ## ------------------------------------------------
 
-Linne$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
+Linne$new()$rule(sel_id("myButton"), color = "blue", fontSize = 50)
 
 ## ------------------------------------------------
 ## Method `Linne$show_css`
 ## ------------------------------------------------
 
-Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+Linne$new()$rule(sel_id("myButton"), color = "blue")$show_css()
 
 ## ------------------------------------------------
 ## Method `Linne$import`
@@ -51,13 +51,13 @@ Linne$new()$import('https://fonts.googleapis.com/css2?family=Roboto')
 css <- Linne$
   new()$
   define(grey = '#c4c4c4')$
-  change(
+  rule(
     sel_id("myButton"), 
     backgroundColor = 'red', 
     fontSize = 20,
     color = grey
   )$
-  change(
+  rule(
     sel_class("aClass"),
     color = grey
   )
@@ -83,7 +83,7 @@ if(interactive())
 ## Method `Linne$write`
 ## ------------------------------------------------
 
-\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+\dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 
 ## ------------------------------------------------
 ## Method `Linne$inject`
@@ -100,7 +100,7 @@ server <- function(input, output){
 
   linne <- Linne$
     new()$
-    change(
+    rule(
       sel_id("change"),
       color = "white",
       backgroundColor = "black"
@@ -119,7 +119,7 @@ if(interactive())
 \subsection{Public methods}{
 \itemize{
 \item \href{#method-define}{\code{Linne$define()}}
-\item \href{#method-change}{\code{Linne$change()}}
+\item \href{#method-rule}{\code{Linne$rule()}}
 \item \href{#method-build}{\code{Linne$build()}}
 \item \href{#method-get_css}{\code{Linne$get_css()}}
 \item \href{#method-show_css}{\code{Linne$show_css()}}
@@ -163,11 +163,11 @@ Self: the \code{Linne} object.
 
 }
 \if{html}{\out{<hr>}}
-\if{html}{\out{<a id="method-change"></a>}}
-\if{latex}{\out{\hypertarget{method-change}{}}}
-\subsection{Method \code{change()}}{
+\if{html}{\out{<a id="method-rule"></a>}}
+\if{latex}{\out{\hypertarget{method-rule}{}}}
+\subsection{Method \code{rule()}}{
 \subsection{Usage}{
-\if{html}{\out{<div class="r">}}\preformatted{Linne$change(selector, ...)}\if{html}{\out{</div>}}
+\if{html}{\out{<div class="r">}}\preformatted{Linne$rule(selector, ...)}\if{html}{\out{</div>}}
 }
 
 \subsection{Arguments}{
@@ -181,7 +181,7 @@ camelcase, e.g.: \code{font-style} or \code{fontStyle}.}
 \if{html}{\out{</div>}}
 }
 \subsection{Details}{
-Change
+Rule
 }
 
 \subsection{Returns}{
@@ -189,7 +189,7 @@ Self: the \code{Linne} object.
 }
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{Linne$new()$change(sel_id("myButton"), color = "blue", fontSize = 50)
+\preformatted{Linne$new()$rule(sel_id("myButton"), color = "blue", fontSize = 50)
 }
 \if{html}{\out{</div>}}
 
@@ -207,18 +207,18 @@ Self: the \code{Linne} object.
 \subsection{Details}{
 Builds CSS
 
-Builds the CSS from definitions and changes.
+Builds the CSS from definitions and rules.
 
 
 Linne$
 new()$
 define(primary_color = 'red')$
-change(
+rule(
 sel_id("myButton"),
 color = primary_color,
 fontSize = 50
 )$
-change(
+rule(
 sel_class("container"),
 backgroundColor = primary_color
 )$
@@ -270,7 +270,7 @@ Prints Generated CSS
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{Linne$new()$change(sel_id("myButton"), color = "blue")$show_css()
+\preformatted{Linne$new()$rule(sel_id("myButton"), color = "blue")$show_css()
 }
 \if{html}{\out{</div>}}
 
@@ -337,13 +337,13 @@ Includes the CSS in shiny, place the call to this method anywhere in the shiny U
 css <- Linne$
   new()$
   define(grey = '#c4c4c4')$
-  change(
+  rule(
     sel_id("myButton"), 
     backgroundColor = 'red', 
     fontSize = 20,
     color = grey
   )$
-  change(
+  rule(
     sel_class("aClass"),
     color = grey
   )
@@ -397,7 +397,7 @@ Write the CSS to file.
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{Linne$new()$change(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+\preformatted{\dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
 }
 \if{html}{\out{</div>}}
 
@@ -455,7 +455,7 @@ server <- function(input, output){
 
   linne <- Linne$
     new()$
-    change(
+    rule(
       sel_id("change"),
       color = "white",
       backgroundColor = "black"

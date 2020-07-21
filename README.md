@@ -37,7 +37,7 @@ linne <- Linne$new()
 There are two core methods to {linne}:
 
 - `define` - Define a global variable
-- `change` - Change the CSS
+- `rule` - Add a rule rule the CSS
 
 Let's say you want to change the look and feel of this button in a shiny application.
 
@@ -45,14 +45,14 @@ Let's say you want to change the look and feel of this button in a shiny applica
 actionButton(inputId = "myButton", label = "Click me")
 ```
 
-Using {linne} we can change some properties of the CSS with `change` method.
+Using {linne} we define a CSS rule with the `rule` method to change how it looks.
 
 ```r
 library(linne)
 
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_input("myButton"), # inputId = "myButton"
     backgroundColor = 'red', 
     fontSize = 20,

@@ -206,7 +206,7 @@
     
 
 <ul>
-<li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_()</a></code> - Makes it such that the change cannot be overwritten by other rules (other selections).</p></li>
+<li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_()</a></code> - Makes it such that the rule cannot be overwritten by other rules (other selections).</p></li>
 <li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgb_()</a></code>, <code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgba_()</a></code> - Functions for red, green, blue and alpha for transparency.</p></li>
 <li><p><code><a href='https://rdrr.io/pkg/linne/man/convenience.html'>url_()</a></code> - Wrap in a <code>url</code> CSS function call.</p></li>
 </ul>
@@ -215,7 +215,7 @@
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
     <pre class="examples"><div class='input'><span class='kw'>Linne</span><span class='op'>$</span>
  <span class='fu'>new</span>()<span class='op'>$</span>
- <span class='fu'>change</span>(
+ <span class='fu'>rule</span>(
    <span class='fu'><a href='https://rdrr.io/pkg/linne/man/selectors.html'>sel_id</a></span>(<span class='st'>"id"</span>),
    color = <span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>rgba_</a></span>(<span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>255</span>, <span class='fl'>.6</span>),
    fontSize = <span class='fu'><a href='https://rdrr.io/pkg/linne/man/convenience.html'>important_</a></span>(<span class='fl'>20</span>)

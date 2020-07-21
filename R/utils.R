@@ -18,7 +18,7 @@ chg2css <- function(x, def){
   selector <- purrr::pluck(x, "selector")
 
   # apply definitions
-  x$change <- purrr::map(x$change, function(value, defs){
+  x$rule <- purrr::map(x$rule, function(value, defs){
 
     if(rlang::is_symbolic(value)){
       value <- rlang::as_label(value)
@@ -32,16 +32,16 @@ chg2css <- function(x, def){
     return(value)
   }, defs = def)
 
-  # change integers to pixels
+  # rule integers to pixels
   # add $ to definitions
-  x$change <- purrr::map(x$change, val2css)
+  x$rule <- purrr::map(x$rule, val2css)
 
-  # change camelcase to -
-  names <- gsub('([[:upper:]])', '-\\1', names(x$change))
+  # rule camelcase to -
+  names <- gsub('([[:upper:]])', '-\\1', names(x$rule))
   names <- tolower(names)
 
   # string of css
-  css <- paste0("\t", names, ":", x$change, ";", collapse = "\n")
+  css <- paste0("\t", names, ":", x$rule, ";", collapse = "\n")
 
   # css reconstruct
   sprintf("%s{\n%s\n}", selector, css)

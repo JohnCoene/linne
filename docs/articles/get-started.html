@@ -165,16 +165,16 @@
 <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>)
 <span class="co">#&gt; ℹ CSS selector: p</span>
 </pre></div>
-<p>The selectors are not useful on their own, they are meant to be used together with the <code>change</code> method where they indicate the element(s) one wants to change.</p>
+<p>The selectors are not useful on their own, they are meant to be used together with the <code>rule</code> method where they indicate the element(s) one wants to change.</p>
 </div>
-<div id="change" class="section level2">
+<div id="rule" class="section level2">
 <h2 class="hasAnchor">
-<a href="#change" class="anchor"></a>Change</h2>
+<a href="#rule" class="anchor"></a>Rule</h2>
 <p>With elements selected one can change the way they look. There are way too many such attributes to list, you will find a comprehensive list on <a href="https://www.w3schools.com/cssref/">w3schools</a>.</p>
 <div class="sourceCode" id="cb6"><pre class="downlit">
 <span class="kw">linne</span> <span class="op">&lt;-</span> <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"myId"</span>),
     fontSize = <span class="fl">20</span>,
     color = <span class="st">"blue"</span>
@@ -189,7 +189,7 @@
 <div class="sourceCode" id="cb7"><pre class="downlit">
 <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
     fontSize = <span class="fl">30</span>,
     fontStyle = <span class="st">"italic"</span>,
@@ -213,7 +213,7 @@
 
 <span class="kw">linne</span> <span class="op">&lt;-</span> <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"p"</span>),
     fontSize = <span class="fl">30</span>,
     fontStyle = <span class="st">"italic"</span>,
@@ -245,7 +245,7 @@
 <span class="co"># change color fo h2 inside container.</span>
 <span class="kw">linne</span> <span class="op">&lt;-</span> <span class="kw">Linne</span><span class="op">$</span>
   <span class="fu">new</span>()<span class="op">$</span>
-  <span class="fu">change</span>(
+  <span class="fu">rule</span>(
     <span class="fu"><a href="../reference/selectors.html">sel_class</a></span>(<span class="st">"container"</span>) <span class="op">%child%</span> <span class="fu"><a href="../reference/selectors.html">sel_tag</a></span>(<span class="st">"h2"</span>),
     color = <span class="st">"#2a9d8f"</span>
   )

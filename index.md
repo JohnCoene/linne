@@ -35,8 +35,8 @@ library(linne)
 
 linne <- Linne$
   new()$
-  change(
-    sel_id("logo"),
+  rule(
+    sel_id("logo"), # select id = logo
     position = "absolute",
     top = 20,
     right = 20,

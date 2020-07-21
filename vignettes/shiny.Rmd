@@ -30,7 +30,7 @@ library(shiny)
 
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_id("btn"),
     color = "white",
     backgroundColor = "red"
@@ -56,7 +56,7 @@ library(shiny)
 
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_id("change"),
     color = "white",
     backgroundColor = "black"
@@ -91,7 +91,7 @@ dir.create("www") # create static asset directory
 
 Linne$
   new()$
-  change(
+  rule(
     sel_tag("p"),
     color = "white",
     fontSize = 30

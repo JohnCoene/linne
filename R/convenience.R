@@ -7,14 +7,14 @@
 #' 
 #' @section Functions:
 #' 
-#' * [important_()] - Makes it such that the change cannot be overwritten by other rules (other selections).
+#' * [important_()] - Makes it such that the rule cannot be overwritten by other rules (other selections).
 #' * [rgb_()], [rgba_()] - Functions for red, green, blue and alpha for transparency.
 #' * [url_()] - Wrap in a `url` CSS function call.
 #' 
 #' @examples 
 #' Linne$
 #'  new()$
-#'  change(
+#'  rule(
 #'    sel_id("id"),
 #'    color = rgba_(255, 255, 255, .6),
 #'    fontSize = important_(20)

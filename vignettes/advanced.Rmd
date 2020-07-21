@@ -18,7 +18,7 @@ library(linne)
 
 ## Define
 
-You can use the `define` method to define global variables. This can make things clearer and more efficient. Note that these variables are referred to by their bare (unquoted) names in the `change` method.
+You can use the `define` method to define global variables. This can make things clearer and more efficient. Note that these variables are referred to by their bare (unquoted) names in the `rule` method.
 
 ```{r}
 Linne$
@@ -27,12 +27,12 @@ Linne$
     theme = "blue",
     font_size = 20
   )$
-  change(
+  rule(
     sel_tag("h1"),
     color = theme,
     fontSize = font_size
   )$
-  change(
+  rule(
     sel_tag("p"),
     color = theme
   )
@@ -54,7 +54,7 @@ The Robot font (print screen above) can thus be applied like so.
 Linne$
   new()$
   import("https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap")$
-  change(
+  rule(
     sel_all(),
     fontFamily = "'Roboto', sans-serif"
   )

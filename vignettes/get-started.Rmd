@@ -52,16 +52,16 @@ Note that this prints the console the actual CSS selector it generates. There ar
 sel_tag("p")
 ```
 
-The selectors are not useful on their own, they are meant to be used together with the `change` method where they indicate the element(s) one wants to change.
+The selectors are not useful on their own, they are meant to be used together with the `rule` method where they indicate the element(s) one wants to change.
 
-## Change
+## Rule
 
 With elements selected one can change the way they look. There are way too many such attributes to list, you will find a comprehensive list on [w3schools](https://www.w3schools.com/cssref/).
 
 ```r
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_id("myId"),
     fontSize = 20,
     color = "blue"
@@ -77,7 +77,7 @@ In order to learn and understand more about CSS you can use the `show_css` metho
 ```{r}
 Linne$
   new()$
-  change(
+  rule(
     sel_tag("p"),
     fontSize = 30,
     fontStyle = "italic",
@@ -96,7 +96,7 @@ library(linne)
 
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_tag("p"),
     fontSize = 30,
     fontStyle = "italic",
@@ -128,7 +128,7 @@ library(linne)
 # change color fo h2 inside container.
 linne <- Linne$
   new()$
-  change(
+  rule(
     sel_class("container") %child% sel_tag("h2"),
     color = "#2a9d8f"
   )
