@@ -37,7 +37,7 @@ linne <- Linne$new()
 There are two core methods to {linne}:
 
 - `define` - Define a global variable
-- `rule` - Add a rule rule the CSS
+- `rule` - Add a CSS rule
 
 Let's say you want to change the look and feel of this button in a shiny application.
 
