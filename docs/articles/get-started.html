@@ -121,7 +121,7 @@
 
       
 
-      </header><script src="get-started_files/header-attrs-2.3.2/header-attrs.js"></script><script src="get-started_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+      </header><script src="get-started_files/header-attrs-2.3/header-attrs.js"></script><script src="get-started_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
   <div class="col-md-9 contents">
     <div class="page-header toc-ignore">
       <h1 data-toc-skip>Get Started</h1>
@@ -151,10 +151,7 @@
 <div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"Hello Linne"</span>, id = <span class="st">"myId"</span>)
 </pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit">
-<span class="fu"><a href="https://rdrr.io/r/base/cat.html">cat</a></span>(<span class="fu"><a href="https://rdrr.io/r/base/character.html">as.character</a></span>(<span class="kw">shiny</span>::<span class="fu"><a href="https://rdrr.io/pkg/htmltools/man/builder.html">p</a></span>(<span class="st">"Hello Linne"</span>, id = <span class="st">"myId"</span>)))
-<span class="co">#&gt; &lt;p id="myId"&gt;Hello Linne&lt;/p&gt;</span>
-</pre></div>
+<pre><code>#&gt; &lt;p id="myId"&gt;Hello Linne&lt;/p&gt;</code></pre>
 <p>For instance, were one want to change the style of the element above, one could select it using its <code>id</code> with:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="fu"><a href="../reference/selectors.html">sel_id</a></span>(<span class="st">"myId"</span>)
