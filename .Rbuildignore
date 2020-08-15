@@ -9,3 +9,4 @@
 ^\.travis\.yml$
 ^appveyor\.yml$
 ^FUNDING\.yml$
+^cran-comments\.md$

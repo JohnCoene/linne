@@ -26,3 +26,5 @@ Suggests:
     testthat,
     covr
 VignetteBuilder: knitr
+URL: http://linne.john-coene.com/
+BugReports: https://github.com/JohnCoene/linne/issues
