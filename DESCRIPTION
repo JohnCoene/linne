@@ -1,6 +1,6 @@
 Package: linne
 Title: Convenient 'CSS'
-Version: 0.0.2.9000
+Version: 0.0.2
 Authors@R: 
     person(given = "John",
            family = "Coene",
