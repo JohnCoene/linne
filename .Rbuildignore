@@ -10,3 +10,4 @@
 ^appveyor\.yml$
 ^FUNDING\.yml$
 ^cran-comments\.md$
+^CRAN-RELEASE$
