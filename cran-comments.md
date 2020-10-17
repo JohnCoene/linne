@@ -1,6 +1,6 @@
 ## Test environments
-* local R installation, R 4.0.2
-* ubuntu 16.04 (on travis-ci), R 4.0.2
+* local R installation, R 4.0.3
+* ubuntu 16.04 (on travis-ci), R 4.0.3
 * win-builder (devel)
 
 ## R CMD check results
@@ -9,14 +9,12 @@
 
 * This is a new release.
 
->    Found the following (possibly) invalid URLs:
->      URL: http://linne.john-coene.com/ (moved to
-> https://linne.john-coene.com/)
->        From: DESCRIPTION
->        Status: 200
->        Message: OK
-> 
-> Please change http --> https.
+> \dontrun{} should only be used if the example really cannot be executed
+> (e.g. because of missing additional software, missing API keys, ...) by
+> the user. That's why wrapping examples in \dontrun{} adds the comment
+> ("# Not run:") as a warning for the user.
+> Please unwrap the examples if they are executable in < 5 sec, or replace
+> \dontrun{} with \donttest{}.
 > 
 > Please fix and resubmit.
 

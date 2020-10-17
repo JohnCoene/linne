@@ -78,4 +78,4 @@ shinyApp(ui, server)
 
 ## Code of Conduct
 
-Please note that the linne project is released with a [Contributor Code of Conduct](http://linne.john-coene.com/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.
+Please note that the linne project is released with a [Contributor Code of Conduct](https://linne.john-coene.com/CODE_OF_CONDUCT.html). By contributing to this project, you agree to abide by its terms.

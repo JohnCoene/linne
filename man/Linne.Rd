@@ -106,7 +106,8 @@ if(interactive())
 ## Method `Linne$write`
 ## ------------------------------------------------
 
-\dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+if(interactive()) 
+ Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")
 
 ## ------------------------------------------------
 ## Method `Linne$inject`
@@ -435,7 +436,8 @@ Write the CSS to file.
 
 \subsection{Examples}{
 \if{html}{\out{<div class="r example copy">}}
-\preformatted{\dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+\preformatted{if(interactive()) 
+ Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")
 }
 \if{html}{\out{</div>}}
 

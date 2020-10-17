@@ -186,7 +186,8 @@ Linne <- R6::R6Class(
 #' @param pretty Whether to keep tabs and newlines.
 #' 
 #' @examples
-#' \dontrun{Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")}
+#' if(interactive()) 
+#'  Linne$new()$rule(sel_id("id"), fontStyle = "italic")$write("styles.css")
     write = function(path = "style.css", pretty = FALSE, build = TRUE){
       if(build) self$build()
 
