@@ -18,9 +18,15 @@ linne makes basic CSS easier for R users. It is intended as a stepping stone to 
 
 ## Installation
 
-It is not yet on CRAN but is available on Github:
+Install the stable version from CRAN.
 
-```r
+``` r
+install.packages("linne")
+```
+
+Or install the development version from Github.
+
+``` r
 # install.packages("remotes")
 remotes::install_github("JohnCoene/linne")
 ```

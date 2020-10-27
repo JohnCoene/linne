@@ -17,7 +17,13 @@ CSS in R
 
 ## Installation
 
-Install the Github version.
+Install the stable version from CRAN.
+
+``` r
+install.packages("linne")
+```
+
+Or install the development version from Github.
 
 ``` r
 # install.packages("remotes")
