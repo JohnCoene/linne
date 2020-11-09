@@ -5,6 +5,7 @@
 #' @param value Value of selector.
 #' @param attribute Name of attribute.
 #' @param tag Name of tag.
+#' @param ns Shiny namespace, only applicable to `sel_id`.
 #' 
 #' @details The functions will print in the console the CSS selector they compose.
 #' 
@@ -30,8 +31,19 @@
 #' 
 #' @name selectors
 #' @export
-sel_id <- function(value){
+sel_id <- function(value, ns = NULL){
   not_missing(value)
+  
+  # if namespace
+  if(!is.null(ns)){
+
+    # check that is character as input might be confusing
+    if(!is.character(ns))
+      stop("`ns` must be a character string", call. = FALSE)
+    
+    # simply paste
+    value <- sprintf("%s-%s", ns, value)
+  }
   construct_selector("#%s", value)
 }
 

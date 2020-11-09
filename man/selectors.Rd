@@ -10,7 +10,7 @@
 \alias{sel_attr}
 \title{Selectors}
 \usage{
-sel_id(value)
+sel_id(value, ns = NULL)
 
 sel_input(value)
 
@@ -24,6 +24,8 @@ sel_attr(attribute, value = NULL, tag = NULL)
 }
 \arguments{
 \item{value}{Value of selector.}
+
+\item{ns}{Shiny namespace, only applicable to \code{sel_id}.}
 
 \item{attribute}{Name of attribute.}
 
