@@ -88,7 +88,7 @@ Linne$
 
 ## Include
 
-Thus far we have generated CSS with linn but are yet to include it anywhere, below we show how to include it in a shiny application.
+Thus far we have generated CSS with linne but are yet to include it anywhere, below we show how to include it in a shiny application.
 
 ```r
 library(shiny)
