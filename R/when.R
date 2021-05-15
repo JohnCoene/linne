@@ -2,7 +2,7 @@
 #' 
 #' Narrows selection to a specific state, e.g.: when it is hovered.
 #' 
-#' @param selector as returned by [selectors].
+#' @param selector As returned by [selectors].
 #' 
 #' @name when
 #' @export
@@ -22,8 +22,15 @@ when_focus <- function(selector){
   whens(selector, "focus")
 }
 
-whens <- function(selector, prefix) UseMethod("whens")
-
-whens.selector <- function(selector, suffix){
+#' Whens
+#' 
+#' Conditionals
+#' 
+#' @param selctor As returned by [selectors].
+#' @param suffix Suffix to use.
+#' 
+#' @keywords internal
+#' @noRd 
+whens <- function(selector, suffix){
   construct_selector("%s:%s", selector, suffix)
 }
