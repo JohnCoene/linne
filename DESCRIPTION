@@ -6,7 +6,9 @@ Authors@R:
            family = "Coene",
            role = c("aut", "cre"),
            email = "jcoenep@gmail.com")
-Description: Conveniently generate 'CSS' using R code.
+Description: Conveniently generate 'CSS' from R to use in 'Shiny',
+    'Rmarkdown', 'htmlwidgets', and many other places where
+    'CSS' is valid.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
