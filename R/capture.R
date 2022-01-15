@@ -1,4 +1,8 @@
-# capture ...
+#' Capture Three Dots
+#' 
+#' @param ... Three dots.
+#' 
+#' @keywords internal
 capture <- function(...){
   qs <- rlang::enquos(...)
   

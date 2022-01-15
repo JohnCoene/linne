@@ -3,8 +3,7 @@
 <img src="man/figures/logo.png" height="250px" />
 
 <!-- badges: start -->
-[![R build status](https://github.com/JohnCoene/linne/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/linne/actions)
-[![Travis build status](https://travis-ci.com/JohnCoene/linne.svg?branch=master)](https://travis-ci.com/JohnCoene/linne)
+[![R-CMD-check](https://github.com/JohnCoene/linne/workflows/R-CMD-check/badge.svg)](https://github.com/JohnCoene/linne/actions)
 [![AppVeyor build status](https://ci.appveyor.com/api/projects/status/github/JohnCoene/linne?branch=master&svg=true)](https://ci.appveyor.com/project/JohnCoene/linne)
 [![Coveralls test coverage](https://coveralls.io/repos/github/JohnCoene/linne/badge.svg)](https://coveralls.io/github/JohnCoene/linne)
 <!-- badges: end -->
